@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: black;
+      font-weight: bold;
+    }
+
+    ul{
+      font-size: 30px;
+      color: gray;
+    }
+    li{
+      display: flex;
+      align-items: center;
+    }
+
+    .dash{
+      width: 15px;
+      height: 4px;
+      background: #3e3e3e;
+      margin-right: 10px;
+      opacity:1;
+    }
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li class="item">
+      <div class="dash"></div>
+      <div class="text">Home</div>
+    </li>
+    <li class="item">
+      <div class="dash"></div>
+      <div class="text">About</div>
+    </li>
+      <li class="item">
+        <div class="dash"></div>
+        <div class="text">Product</div>
+    </li>
+      <li class="item">
+        <div class="dash"></div>
+        <div class="text">Contact</div>
+    </li>
+  </ul>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    const items =document.querySelectorAll('.item');
+
+    //console.log(items);
+
+    // items.forEach((item,index) => {
+    //   console.log(item,index)
+    // })
+
+    
+    gsap.defaults({duration:0.3}); //(2)매번 넣는것들을 공통으로 넣을수 있음
+
+    items.forEach((item) => {
+      let tl = gsap.timeline({paused:true});
+      //(1)
+      // tl.to(item.querySelector('.text'),{color:'#fff',x:15, duration:0.3})
+      // tl.to(item.querySelector('.dash'),{opacity:1, x:-5, backgroundColor:'yellow', duration:0.3})
+
+      //(2)
+      tl.to(item.querySelector('.text'),{color:'#fff',x:15})
+      tl.to(item.querySelector('.dash'),{opacity:1, x:-5, backgroundColor:'yellow'},'<')
+
+      item.addEventListener('mouseenter', () => {tl.play()})
+      item.addEventListener('mouseleave', () => {tl.reverse()})
+    });
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+
+section{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.box{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+.hero{
+  height: 100vh;
+  overflow-x: hidden;  /* 가로스크롤을 없앰 */
+}
+
+.wrapper{
+  display: flex;
+
+  & section{
+    flex-shrink: 0;  /* 기본값이 1, 자식이 줄지않기 위해 0으로 설정정 */
+  }
+}

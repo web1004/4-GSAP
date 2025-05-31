@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-가속도</title>
+  <style>
+    body{
+      background: gray;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height:100vh;
+    }
+    .stage{
+      width: 50vw;
+      height: 50vh;
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      background: black;      
+    }
+    .box{
+      width: 100px;
+      min-width:30px;
+      height: 50px;
+      margin: 2vw;
+    }
+    .orange{ background: orange;}
+    .pink{background: hotpink;}
+    .green{background: green;}
+    .red{background: red;}
+    .blue{background: dodgerblue;}
+  </style>
+</head>
+<body>
+  
+  <div class="stage">
+    <div class="orange box"></div>
+    <div class="pink box"></div>
+    <div class="green box"></div>
+    <div class="red box"></div>
+    <div class="blue box"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    // gsap.to('.orange',{y:-100});
+    // gsap.to('.pink',{y:-100,delay:0.2});
+    // gsap.to('.green',{y:-100,delay:0.4});
+    // gsap.to('.red',{y:-100,delay:0.6});
+    // gsap.to('.blue',{y:-100,delay:0.8});
+
+    //gsap.to('.box',{y:-200, stagger:0.5}); 
+
+    gsap.to('.box',{y:-100, stagger:{
+      //each:0.2,
+      amount:1,
+      from:"edges", //start, end, center, edges
+      duration:6
+    }})
+  </script>
+
+</body>
+</html>
+
+<!-- 
+다중요소 제어하기
+stagger속성을 사용하면 단일 트윈에서 여러 대상의 시작 시간을 오프셋 설정할수 있다.
+GSAP3에서는 GSAP2의 staggerTo(), staggerFrom(), staggerFromTo() 메서드를 더이상 사용하지 않는다.
+
+​
+each :0.2 는 각 애니메이션의 시작 사이에 0.2초가 있음을 의미합니다.
+amount:0.2 는 모든 애니메이션이 0.2초 이내에 다 나오는것을 의미합니다.
+-->

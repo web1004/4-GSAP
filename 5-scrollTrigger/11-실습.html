@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP ScrollTrigger</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    li{list-style: none;}
+    section{
+      border: 1px solid yellow;
+      height: 100vh;
+      background-color: #23282a;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .s0{background-color: #fff;}
+    .s0 .title{
+      font-size: 120px;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: #23282a;
+    }
+    .s0 .title span{
+      color: yellowgreen;
+      display: block;
+    }
+
+    .s1{
+      /* border: 1px solid blue; */
+      position: relative;
+      height: 1200px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    .s1 .circle{
+      display: block;
+      width: 2500px;
+      height: 2500px;
+      border-radius: 50%;
+      background-color: #23282a;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .s1 .textBox{
+      border: 1px solid blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      z-index: 2;
+    }
+    .s1 .textBox p{
+      font-size: 64px;
+      font-weight: bold;
+      letter-spacing: -5px;
+      line-height: 1;
+    }
+
+    .s2 ul{
+      display: flex;
+      width: 70%;
+      /* background-color: red; */
+      justify-content: space-between;
+      color: #333;
+      font-weight: bold;
+    }
+    .s2 ul li{
+      width: 22%;
+      background-color: gold;
+      height: 300px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .s3{
+      position: relative;
+      overflow: hidden;
+    }
+    .s3 .s3_title{
+      color: #fff;
+      font-size: 100px;
+    }
+    .s3 span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      width: 250px;
+      height: 300px;
+      background-color: #b1dd40;
+      border-radius: 20px;
+      color: #333;
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .s3 span:nth-of-type(1){transform: translate(-50%, -50%) rotate(-12deg);}
+    .s3 span:nth-of-type(2){transform: translate(-50%, -50%) rotate(12deg);background-color: aqua;}
+    .s3 span:nth-of-type(3){transform: translate(-50%, -50%) rotate(-15deg);background-color: rgb(243, 104, 104);}
+    .s3 span:nth-of-type(4){transform: translate(-50%, -50%) rotate(18deg);background-color: rgb(56, 67, 226);}
+    .s3 span:nth-of-type(5){transform: translate(-50%, -50%) rotate(-3deg);background-color: #b8f817;}
+
+    .s4{
+      height: 800px;
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <section class="s0">
+      <h2 class="title"><span>GSAP</span>ScrollTrigger</h2>
+    </section>
+    <section class="s1">
+      <span class="circle"></span>
+      <div class="textBox">
+        <p>
+          our release<br>
+          get a feeling<br>
+          for the latest<br>
+          selected sound
+        </p>
+      </div>
+    </section>
+    <section class="s2">
+      <ul>
+        <li>Card 1</li>
+        <li>Card 2</li>
+        <li>Card 3</li>
+        <li>Card 4</li>
+      </ul>
+    </section>
+    <section class="s3">
+      <h2 class="s3_title">section 3</h2>
+      <span class="c1">Card1</span>
+      <span class="c2">Card2</span>
+      <span class="c3">Card3</span>
+      <span class="c4">Card4</span>
+      <span class="c5">Card5</span>
+    </section>
+    <div class="s4">
+
+    </div>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script>
+
+    gsap.timeline({
+      scrollTrigger:{
+        trigger:'.s1',
+        start:'0% 50%',
+        end:'30% 0%',
+        scrub:1,
+        //markers:true
+      }
+    })
+    .fromTo('.circle',
+    {width:'0',height:'0',duration:'10',ease:'elastic',top:'3%'},
+    {width:'2500px',height:'2500px',duration:'10',top:'30%'},0)
+
+
+    gsap.timeline({
+      scrollTrigger:{
+        trigger:'.s1 .textBox',
+        start:'0% 80%',
+        end:'100% 80%',
+        scrub:1,
+        markers:true
+      }
+    })
+    .fromTo('.textBox',
+    {top:'50%',duration:5,ease:'elastic',opacity:0},
+    {duration:'5',ease:'none',opacity:1,top:'40%'},0)
+
+
+    gsap.timeline({
+      scrollTrigger:{
+        trigger:'.s2 ul',
+        start:'top 90%',
+        end:'20% 100%',
+        scrub:1,
+        //markers:true
+      }
+    })
+    .to('.s2 ul li',{y:-100, stagger:0.2})
+
+    gsap.timeline({
+      scrollTrigger:{
+        trigger:'.s3',
+        start:'top 100%',
+        end:'100% 100%',
+        scrub:1,
+        markers:true
+      }
+    })
+    .fromTo('.s3 span.c1',{y:'400%'},{y:'0'},1.2)
+    .fromTo('.s3 span.c2',{y:'400%'},{y:'0'},1.4)
+    .fromTo('.s3 span.c3',{y:'400%'},{y:'0'},1.6)
+    .fromTo('.s3 span.c4',{y:'400%'},{y:'0'},1.8)
+    .fromTo('.s3 span.c5',{y:'400%'},{y:'0'},2)
+  </script>
+</body>
+</html>

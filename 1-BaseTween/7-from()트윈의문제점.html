@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-가속도</title>
+  <style>
+    body{background: gray;}
+    .circle{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 40vw;
+      height: 40vw;
+      border-radius: 50%;
+      background: dodgerblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border: 6px solid black;
+      overflow: hidden;
+    }
+    .bg{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 40vw;
+      height: 40vw;
+      border-radius: 50%;
+      background: darkblue;
+    }
+    .circle span{
+      color: #fff;
+      font-size: 5vw;
+      position:relative;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="circle">
+    <div class="bg"></div>
+    <span>hover me</span>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    const circle = document.querySelector(".circle")
+    const bg = document.querySelector(".bg")
+
+    //01-마우스를 빠르게 움직이면 이상해짐
+    // circle.addEventListener('mouseenter',()=>{     
+    //   gsap.from(bg,{scale:0})
+    // })
+
+    //02-마우스를 빠르게 움직이면 scale값이 점점 줄어듬(from은 초기값을 계산하고 가져와서 그값을 사용하기 때문에 여러번 사용이 될경우는 문제가 발생함)
+    // circle.addEventListener('mouseenter',()=>{
+    //   console.log(gsap.getProperty(bg,'scale'));  // (가져오고 싶은 선택자,가져오고 싶은 값)   
+    //   gsap.from(bg,{scale:0})
+    // })
+
+    //03- 해결(fromTo)
+    // circle.addEventListener('mouseenter',()=>{
+    //   console.log(gsap.getProperty(bg,'scale'));  // (가져오고 싶은 선택자,가져오고 싶은 값)   
+    //   gsap.fromTo(bg,{scale:0},{scale:1})
+    // })
+
+
+    let getter = gsap.getProperty(bg);
+    //let x = getter('width');
+    let x = getter('width','vw')
+
+    console.log(x)
+
+
+    circle.addEventListener('mouseenter',()=>{     
+      console.log(gsap.getProperty(bg,'scale'));
+      gsap.fromTo(bg,{scale:0},{scale:1})
+    });
+  </script>
+
+</body>
+</html>

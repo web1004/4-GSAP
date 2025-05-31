@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-parallax</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #hero {
+      height: 800px;
+      overflow: hidden;
+      position: relative;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+    #content {background-color: #130d0a;}
+    .layer {
+      background-position: bottom center;
+      background-size: auto;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 800px;
+      position: fixed;  /* 잣기요소들 모두 고정시킴 */
+      z-index: -1;
+    }
+    /* #hero-mobile {
+      display: none;
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/full_illustration.png")
+        no-repeat center bottom/cover;
+      height: 320px;
+    } */
+    .first-section {padding: 50px 0 20px 0;}
+    .text-header {
+      font-size: 50px;
+      text-align: center;
+    }
+    h1 {
+      line-height: 120%;
+      margin-bottom: 30px;
+    }
+    p {
+      color: #ede0d5;
+      font-size: 18px;
+      line-height: 150%;
+      margin: 50px 0;
+    }
+    #hero, .layer {min-height: 800px;}
+    .layer-bg {background-image: url("img/ilu_bg.jpg");}
+    .layer-1 {background-image: url("img/ilu_03.png");background-position: left bottom;}
+    .layer-2 {background-image: url("img/ilu_02.png");}
+    .layer-3 {background-image: url("img/ilu_man.png");background-position: right bottom;}
+    .layer-4 {background-image: url("img/ilu_01.png");}
+    .layer-overlay {background-image: url("img/ilu_overlay.png");}
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="hero">
+      <div class="layer-bg layer parallax" data-depth="0.1"></div>
+      <div class="layer-1 layer parallax" data-depth="0.2"></div>
+      <div class="layer-2 layer parallax" data-depth="0.5"></div>
+      <div class="layer-3 layer parallax" data-depth="0.8"></div>
+      <div class="layer-overlay layer parallax" data-depth="0.85"></div>
+      <div class="layer-4 layer parallax" data-depth="1"></div>
+    </div>
+
+    <div id="content">
+      <div class="container">
+        <section class="first-section">
+          <div>
+            <div>
+              <h1>
+                You cannot hide the soul. Through all his unearthly tattooings,
+                I thought I saw the traces of a simple honest heart.
+              </h1>
+            </div>
+          </div>
+          <div>
+            <div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores temporibus modi rerum autem, officia culpa soluta inventore assumenda. Enim repellendus porro perspiciatis aspernatur excepturi impedit fuga ipsum nesciunt aperiam, aliquam eos fugit autem consectetur minima doloremque, sequi officia eligendi vero voluptas, quis ex! Nam iste cupiditate numquam optio vel nulla.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel numquam assumenda non eaque odio repellendus, sit excepturi soluta quo? Eum, unde sint obcaecati dolor a vero tenetur odit laboriosam ea quibusdam similique, accusamus animi soluta voluptates sit totam quas. Mollitia, aut quod aspernatur labore cupiditate provident recusandae, placeat reprehenderit magni numquam optio, consequatur expedita explicabo libero eos enim error iste quae id quaerat laudantium incidunt exercitationem? Repellendus omnis ducimus provident. Veniam laborum impedit suscipit dicta, animi quod velit doloremque asperiores et, sapiente officia dolores, nisi modi corporis dolorem molestiae quidem quasi dolor. Aut placeat amet tempore reiciendis perferendis maiores cumque?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam maiores possimus error ea id, architecto aliquam culpa repellendus reiciendis similique repudiandae fugit iure unde non eveniet voluptatem expedita! Quam, aperiam. Provident aliquam itaque velit modi, eligendi nisi sit? Vel officia, pariatur, provident veniam eveniet, asperiores quaerat unde ea deserunt doloribus eligendi reiciendis placeat. Animi et quis distinctio, fugiat veritatis eaque aut facilis voluptate sapiente explicabo delectus iure voluptates perspiciatis, debitis mollitia ratione itaque, quam modi nulla nam recusandae illo ducimus. Veniam corporis aspernatur obcaecati soluta autem suscipit quidem, consectetur aliquid corrupti, facilis porro delectus et nam fugiat? Voluptatem aperiam, ipsam minima ab a est. A, iure consectetur nostrum aliquam quas repudiandae magnam dolorem! Illo fugiat animi laboriosam reprehenderit ratione veniam.
+              </p>
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae esse incidunt enim similique consectetur maxime ducimus maiores minima ut quia, dolor accusantium eaque consequuntur ab quos vel perferendis reprehenderit debitis doloribus facilis voluptas tenetur blanditiis quo. Vitae, excepturi error! Fuga libero aliquid id repudiandae asperiores placeat officia hic assumenda quod ea ipsam nemo et quo, doloremque, obcaecati maiores dolore, vero modi cupiditate porro! Ullam sed nisi pariatur qui, molestiae recusandae esse magnam iure ex ipsa, quisquam non, vel omnis quibusdam. Accusantium minus, eos iure accusamus soluta quidem rerum. Rem corrupti ab quod minima, itaque quasi a earum iste labore dicta?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis cumque in maxime sed autem earum, tempore modi possimus laudantium molestias veniam, quis nostrum enim, laboriosam omnis saepe quam suscipit nihil natus corrupti iure! Fuga eveniet, velit, porro quisquam sunt incidunt quis magni odio tenetur repellendus dolores ullam nihil nisi impedit!
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script>
+    // Parallax Scrolling : 시차 스크롤을 주는 애니메이션이 요새 많이 사용되고 있다.
+
+    //(1)
+    // const tween = gsap.to('.layer-bg',{y:-100});
+
+    // ScrollTrigger.create({
+    //   trigger: '#hero',
+    //   start: 'top center',
+    //   end: 'bottom center',
+    //   animation: tween,
+    //   markers: true,
+    //   scrub: true,
+    // })
+
+    //(2)
+    // const tl = gsap.timeline()
+    // .to('.layer-bg',{y:-100},0)
+    // .to('.layer-1',{y:-50},0)
+    // .to('.layer-2',{y:-80},0)
+    // .to('.layer-3',{y:-20},0)
+    // .to('.layer-4',{y:-120},0)
+    // .to('.layer-overlay',{y:-60},0); 
+
+    // ScrollTrigger.create({
+    //   trigger: '#hero',
+    //   start: 'top center',
+    //   end: 'bottom center',
+    //   animation: tl,
+    //   markers: true,
+    //   scrub: true,
+    // })
+
+    //(3)
+  /*  const tween = gsap.timeline()
+    .to('.layer-bg',{y:-100})
+    .to('.layer-1',{y:-50},0)
+    .to('.layer-2',{y:-80},0)
+    .to('.layer-3',{y:-20},0)
+    //.to('.layer-4',{y:-800, ease:'none'},0)
+    .to('.layer-4',{y(){
+      return -this.targets()[0].offsetHeight
+    },ease:'none'},0)
+    .to('.layer-overlay',{y:-60},0);
+
+    ScrollTrigger.create({
+      trigger: '#hero',
+      start: 'top top',
+      end: 'bottom top',
+      animation: tween,
+      markers: true,
+      //scrub: 1,
+      scrub: true,
+    }); */
+
+    //(4)
+    /* //console.log(gsap.utils.toArray('.parallax'));
+    gsap.utils.toArray('.parallax').forEach(layer => {
+      //console.log(layer);
+      //console.log(layer.dataset.depth);
+      //console.log(layer.getAttribute('data-depth'));
+      const depth = layer.dataset.depth;
+      const movement = -(layer.offsetHeight * depth);
+
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        animation: gsap.to(layer,{y:movement,ease:'none'}),
+        markers: true,
+        //scrub: 1,
+        scrub: true,
+      });
+    });  */
+
+    //(5)
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:'#hero',
+        start:'top',
+        end:'bottom top',
+        markers:true,
+        scrub:true,
+      }
+    });
+
+    gsap.utils.toArray('.parallax').forEach(layer => {
+      const depth = layer.dataset.depth;
+      const movement = -(layer.offsetHeight * depth)
+
+      tl.to(layer,{y:movement,ease:'none'},0)
+    });
+    
+  </script>
+</body>
+</html>

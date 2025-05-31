@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-AnimationToggle</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #container{
+      width: 100vw;
+      height: 100vh;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #fd9fe9;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .section02{height: 600px;}
+
+    .lnb{
+      position: absolute;
+      left: 5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      /* display: none; */
+      /* mix-blend-mode: difference; */
+    }
+    .progress{
+      width: 2px;
+      height: 100%;
+      background: hotpink;
+      position: absolute;
+      left:50%;
+      margin-left: -1px;
+      /* transform: translateX(-50%); */
+      top: 0;
+    }
+    .lnb ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      /* color: #fff; */
+    }
+    .lnb ul > li{
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .lnb ul > li:last-child{margin-bottom: 0;}
+    .dot{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: hotpink;
+      position: relative;
+      z-index: 10;     
+    }
+    .lnb span{
+      white-space: nowrap;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="lnb">
+    <div class="progress"></div>
+    <ul>
+      <li>
+        <div class="dot"></div>
+        <span>Home</span>
+      </li>
+      <li>
+        <div class="dot"></div>
+        <span>About</span>
+      </li>
+      <li>
+        <div class="dot"></div>
+        <span>Product</span>
+      </li>
+      <li>
+        <div class="dot"></div>
+        <span>Portfolio</span>
+      </li>
+      <li>
+        <div class="dot"></div>
+        <span>Contact Us</span>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="container">
+    <section class="section section01"><h2>section1</h2></section>
+    <section class="section section02"><h2>section2</h2></section>
+    <section class="section section03"><h2>section3</h2></section>
+    <section class="section section04"><h2>section4</h2></section>
+    <section class="section section05"><h2>section5</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/markers.js"></script>
+  <script>
+
+    //(2)
+    // const lnbAnimation = gsap.timeline()
+    // .to('.lnb li:nth-child(2) .dot', {scale:2})
+    // .to('.lnb li:nth-child(2) span', {opacity:1, x:40},0)
+
+    // ScrollTrigger.create({
+    //   trigger: '.section02',
+    //   start: 'top center',
+    //   end: 'bottom center',
+    //   animation: lnbAnimation,
+    //   toggleActions:'restart reverse restart reverse',
+    //   markers: true,
+    // })
+
+    //(3)
+    /* gsap.utils.toArray('.section').forEach((section, index) => {
+      //console.log(section);
+
+      //각 버튼별로 각각의 애니메이션이 되어야 하므로 매번 실행할수 있도록 foeach 문안에 넣음
+      let lnbAnimation = gsap.timeline()
+      .to(`.lnb li:nth-child(${index+1}) .dot`, {scale:2})
+      .to(`.lnb li:nth-child(${index+1}) span`, {opacity:1, x:40},0)
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center',
+        end: 'bottom center',
+        animation: lnbAnimation,
+        toggleActions:'restart reverse restart reverse',
+      })
+
+    }); */
+
+    //(4)특정영역에 다른 애니메이션을 넣을때
+    //문은 값을 반환하지 않기 때문에 returnd이 있어야하고
+    //식은 값을 반환하기 떄문에 return 이 필요없음
+    gsap.utils.toArray('.section').forEach((section, index) => {
+
+      let lnbAnimation = gsap.timeline()
+      .to(`.lnb li:nth-child(${index+1}) .dot`, {scale:2})
+      .to(`.lnb li:nth-child(${index+1}) span`, {
+        opacity:1, 
+        x:40,
+        // color:()=>{
+        //   if(index == 1){
+        //     return 'white'
+        //   }
+        // }
+
+        //color: index ==1 ? 'white' : 'black'
+
+        color: index ==1 && 'white'  //index값이 1이 맞으면 화이트해!
+        /* 논리곱연산: 2가지 연산을 통해서 첫번째 fasle를 반환한다.
+        앞이 값이 참인 순간 그 뒤에걸 확인하게 되고, 뒤의 값이 참이건 거짓이건 내보낸다.
+        */
+
+
+      },0)
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center',
+        end: 'bottom center',
+        animation: lnbAnimation,
+        toggleActions:'restart reverse restart reverse',
+      })
+
+    });
+
+
+    //(5)
+    ScrollTrigger.create({
+      trigger: '.section02',
+      start: 'top center',
+      end: 'bottom center',
+      animation: gsap.to('.section02',{backgroundColor:'black'}),
+      //toggleActions:'restart reverse restart reverse',
+      
+      onToggle:({isActive,animation})=>{
+        gsap.to('.section02',{backgroundColor:isActive ? 'black' : 'white'})
+      }
+    })
+
+    //(1)
+    ScrollTrigger.create({
+      trigger: '.scroll-content',
+      start: 'top top',
+      end: 'bottom bottom',
+      animation: gsap.from('.progress',{scaleY:0,transformOrigin:'center top',ease:'none'}),
+      scrub: true,
+    })
+    /* 
+    scroll-content 클래스는 우리가 직접 만든건 아니지만
+    smooth-scrollbar를 사용하면 내부적으로 DOM요소를 하나 생성해 부드러운 스크롤을 처리해준다.
+    그 생성된 DOM요소가 scroll-content라는 클래스를 가지고 만들어진다.
+    */
+
+    markers();
+  </script>
+</body>
+</html>
+
+

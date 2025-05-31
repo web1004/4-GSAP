@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-가속도</title>
+  <style>
+    body{background: gray;}
+    .orange{
+      width: 100px;
+      height: 100px;
+      background: orange;
+    }
+    #controller{
+      display:flex;
+      margin: 50px;
+    }
+    #controller > button{
+      background: black;
+      padding: 5px 10px;
+      color: #fff;
+      font-size: 30px;
+      border-radius: 10px;
+      cursor:pointer;
+    }
+    #controller button:focus {
+      outline:none;
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="orange"></div>
+
+  <div id="controller">
+    <button class="play">play</button>
+    <button class="pause">pause</button>    
+    <button class="resume">resume</button>    
+    <button class="reverse">reverse</button>
+    <button class="restart">restart</button>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+
+    //gsap.to('.orange',{x:500});
+    //let tween = gsap.to('.orange',{x:500, duration:5});
+    let tween = gsap.to('.orange',{x:500, duration:5, paused:true})  //처음부터 멈쳐있고 싶을때
+
+    // tween.pause();
+
+    document.querySelector('.play').addEventListener('click',() => { tween.play()});
+    document.querySelector('.pause').addEventListener('click',() => { tween.pause()});
+    document.querySelector('.resume').addEventListener('click',() => { tween.resume()});
+    document.querySelector('.reverse').addEventListener('click',() => { tween.reverse()});
+    document.querySelector('.restart').addEventListener('click',() => { tween.restart()});
+
+  </script>
+
+</body>
+</html>
+<!-- 
+Tween에는 재생을 제어하는 여러 가지 방법들이 있다.
+트윈을 제어하려면 이를 참조할 방법이 필요하고 아래의 코드처럼 트윈을 참조하는 변수를 설정한다.
+
+tween.play()
+tween.pause()
+tween.resume()
+tween.reverse()
+tween.restart()
+-->

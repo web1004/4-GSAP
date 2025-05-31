@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-from()과fromTo()의 차이</title>
+  <style>
+    body{background: #ccc;}
+    .blue{
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="blue"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    //gsap.to('.blue',{x:300, repeat: 3, delay:2}); //첫번째는 기본적으로 재생이되고 그 다음부터 3번 재생됨
+
+    //gsap.to('.blue',{x:300,repeat: 3, repeatDelay:1})
+
+    gsap.to('.blue',{x:300,repeat:-1, repeatDelay:1, yoyo:true})  //css의 애니메이션 alternate와 동일함
+  </script>
+
+</body>
+</html>
+
+<!-- 
+delay : 애니메이션이 시작되기 전에 지연시간을 지정
+repeat : 애니메이션이 몇번 반복되어야 하는지를 지정(-1을 설정하면 무기한 반복됨)
+yoyo : true로 설정하면 애니메이션이 앞뒤로 재생(repeat: -1 설정이 들어있어야 사용가능)
+repeatDelay : 각 반복 사이에 발생하는 지연시간을 지정
+-->

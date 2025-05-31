@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP ScrollTrigger</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #container{
+      width: 100vw;
+      height: 100vh;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #fd9fe9;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .box{
+      width: 100px;
+      height: 100px;
+      background:red;
+    }
+    canvas {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100vw;
+      max-height: 100vh;
+      filter: brightness(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <section class="section section01"><h2>section1</h2>
+      <!-- <div class="box"></div> -->
+    </section>
+    <section class="section section02">
+      <canvas id="canvas"></canvas>
+    </section>
+    <section class="section section03"><h2>section3</h2>
+      <!-- <video id="video" src="video.mp4" muted loop autoplay></video> -->
+      <!-- <video id="video" src="video.mp4" muted loop></video> -->
+    </section>
+    <section class="section section04"><h2>section4</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/markers.js"></script>
+  <script src="js/script1.js"></script>
+</body>
+</html>
+
+<!-- 
+구글검색 : video to jpg
+
+Ezgif
+-->

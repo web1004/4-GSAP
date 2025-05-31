@@ -1,0 +1,186 @@
+/* pc 1650px ~ 1301px */
+@media screen and (max-width:1650px){
+
+  .visual .svgAni{top: 17%;}
+  .visual .subText{margin-left: 30px;}
+  .s3.motion .btnWrap{right: 10%;}
+
+}
+
+/* pc 1300px ~ 1025px */
+@media screen and (max-width:1300px){
+
+  .visual .mainText{
+    font-size: 11vw;
+    width: 100%;
+  }
+  .visual .svgAni{
+    width: 56%;
+    top: 39%;
+  }
+  .visual .subText{
+    margin-left: 0;
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 8%;
+  }
+  footer .textWarp a{font-size: 144px;}
+
+}
+
+/* pc 1024px ~ 801px */
+@media screen and (max-width:1024px){
+
+  .visual .svgAni{
+    width: 76%;
+    top: 36%;
+    right: -1%;
+  }
+  .visual .subText{bottom: -8%;}
+  .s1 .title h2{font-size: 7vw;}
+  .s2 .title{font-size: 18vw;}
+  .s2 .workList{width: 90%;}
+  .s3 .textWarp{width: 85%;}
+  .s3 .textWarp ul li{font-size: 12vw;}
+  footer .textWarp{font-size: 12vw;}
+  footer .textWarp a{font-size: 12vw;}
+  footer .bottom{font-size: 20px;}
+
+}
+
+/* pc 800px ~ 501px */
+@media screen and (max-width:800px){
+  
+  #wrap{font-size: 16px;}
+  header{padding: 3% 5%;}
+  .gnb{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    z-index: 100;
+    width: 0%;
+    height: 0%;
+    background-color: #fff;
+    overflow: hidden;
+    color: #000;
+    transition: top 0.5s;
+  }
+  .gnb ul{
+    display: block;
+    width: 80%;
+    /* background-color: green; */
+    margin: 20% auto;
+  }
+  .gnb ul li a{
+    font-size: 18vw;
+    line-height: 1.4;
+    letter-spacing: -1px;
+  }
+  .gnb ul li:nth-child(2){font-family: 'Cormorant Infant', serif;}
+  .gnb ul li a .char{
+    color: #000;
+    overflow: inherit;
+  }
+  .gnb ul li a .char:before,
+  .gnb ul li a .char:after{
+    display: none;
+  }
+
+  header .menuOpen{
+    display: block;
+    position: relative;
+    width: 32px;
+    height: 10px;
+    /* background-color: green; */
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 200;
+    transition: top 0.5s;
+  }
+  header .menuOpen span.a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transform: 0.3s;
+  }
+  header .menuOpen span.b{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transform: 0.3s;
+  }
+
+  .gnb.on{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+  }
+  body.on{overflow: hidden;}
+  header .menuOpen.on span.a{
+    background-color: #000;
+    transform: rotate(45deg) translate(5px,5px);
+  }
+  header .menuOpen.on span.b{
+    background-color: #000;
+    transform: rotate(-45deg) translate(2px,-1px);
+  }
+
+  .visual .svgAni{
+    width: 85%;
+    right: 3%;
+  }
+  .visual .scroll{
+    left: 5%;
+    bottom: 2%;
+  }
+
+  .s2 .workList li{
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  .s2 .workList li a .textBox h3{font-size: 28px;}
+  .s2 .workList li a .imgBox:before{display: none;}
+  .s2 .workList li a .imgBox:after{display: none;}
+  .s2 .title .en2{font-size: 20vw;}
+
+  .s3 .btnWrap a{
+    width: 90px;
+    height: 90px;
+  }
+  .s3 .btnWrap a:before{display: none;}
+  .s3 .btnWrap a:hover{border-color: #fff;}
+  .s3 .btnWrap a img:nth-child(2){display: none;}
+
+  .simply-scroll .simply-scroll-clip{
+    transform: rotate(10deg) translate(20%,400px) scale(1.2);
+  }
+  .simply-scroll .simply-scroll-clip .simply-scroll-list li{width: 200px;}
+
+  footer{height: 50vh;}
+  footer .textWarp{
+    width: 90%;
+    padding: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  footer .textWarp .title{padding-left: 0;}
+  footer .textWarp .contact{margin-bottom: 40px;}
+}
+
+/* pc 500x ~ 401px */
+@media screen and (max-width:500px){
+
+
+
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: black;
+    }
+
+    .stage{
+      width: 500px;
+      height: 350px;
+      background: #333;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      overflow:hidden;
+      perspective:700px;
+    }
+
+    .character{
+      position: absolute;
+      top: 100px;
+      /* transform: translateX(-100%) */
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="character"><img src="girl.png" alt=""></div>  
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    //gsap.to('.character',{x:480});
+
+    // gsap.to('.character',{
+    //   keyframes:{
+    //     "0%":{x:0},
+    //     "50%":{y:-100},
+    //     "100%":{x:480, y:0}
+    //   },
+    //   duration:2
+    // })
+
+    // gsap.to('.character',{
+    //   keyframes:{
+    //     "0%":{x:0},
+    //     "25%":{y:0},
+    //     "50%":{y:-100},
+    //     "75%":{y:0},
+    //     "100%":{x:420}
+    //   },
+    //   duration:2
+    // })
+
+    console.log(gsap.version); //GSAP 버전 알아보기
+
+    gsap.to('.character',{
+      keyframes:{
+        "0%":{x:0},
+        "25%":{y:0, ease: "sine.out",},  //가속도추가, 3.9이상 버전에서 사용가능
+        "50%":{y:-100, rotation:360,ease: "sine.in"},  //
+        "75%":{y:0},
+        "100%":{x:420}
+      },
+      duration:2
+    });
+  </script> 
+</body>
+</html>

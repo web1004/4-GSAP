@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-from()과fromTo()의 차이</title>
+  <style>
+    body{background: #ccc;}
+    .blue{
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="blue"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    //gsap.from('.blue',{x:400, y:300, scale:3, backgroundColor: 'red', rotation:360, duration:10})
+
+    gsap.fromTo('.blue',
+      {x:300, y:300, scale:3, backgroundColor: 'red', rotation:360, duration:5},
+      {x:100, y:100, scale:0.5, backgroundColor: 'dodgerblue', rotation:0, duration:5}
+      )
+  </script>
+
+</body>
+</html>
+
+<!-- 
+gsp.from() 메서드는 지정한 값(위치)에서 부터 원래의 값(위치)으로 애니메이션이 된다.
+
+-->

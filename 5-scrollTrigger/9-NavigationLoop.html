@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9-NavigationLoop</title>
+  <!-- 스크롤에 따라 헤더의 메뉴배경색을 변경 -->
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #container{
+      width: 100vw;
+      height: 100vh;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #fd9fe9;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .nav{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      /* height: 100px; */
+      z-index: 999;
+      background: #fde50e;
+      padding: 20px 0;
+    }
+    .nav > ul{
+      display: flex;
+      list-style: none;
+      align-items: center;
+      font-size: 2rem;     
+    }
+    .nav > ul > li{margin-right: 5vw;}
+    .nav > ul > li > a{color: inherit;}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="#section01">🐯 Home</a></li>
+      <li><a href="#section01">😊 About</a></li>
+      <li><a href="#section02">💎 Product</a></li>
+      <li><a href="#section03">👀 Portfolio</a></li>
+      <li><a href="#section04">📞 Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div id="container">
+    <section class="section section01"><h2>section1</h2></section>
+    <section class="section section02"><h2>section2</h2></section>
+    <section class="section section03"><h2>section3</h2></section>
+    <section class="section section04"><h2>section4</h2></section>
+    <section class="section section05"><h2>section5</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/markers.js"></script>
+  <script>
+    const navColor = ["#ebdec1", "#e9aab1", "#92e0d3", "#52becb", "#f17683"];
+    const nav = document.querySelector(".nav");
+
+    //(1)
+    /* ScrollTrigger.create({
+      trigger: '.section02',
+      start: 'top top',
+      end: 'bottom bottom',
+      animation: gsap.to(nav,{backgroundColor:navColor[1]}),
+      markers: true,
+      //                E      L    EB   LB
+      toggleActions: "restart none none reverse",
+    }); */
+
+    //(2)
+    /* ScrollTrigger.create({
+      trigger: '.section02',
+      start: () => `top ${nav.offsetHeight}px`,
+      end: () => `bottom ${nav.offsetHeight}px`,
+      animation: gsap.to(nav,{backgroundColor:navColor[1]}),
+      markers: true,
+      //                E      L    EB   LB
+      toggleActions: "restart none none reverse",
+    }); */
+
+
+    //(3)
+    // const section = gsap.utils.toArray('.section').map((section) => {
+    //   //console.log(section.getBoundingClientRect().top);
+    //   return section.getBoundingClientRect().top
+    // });
+
+    //console.log(section);
+
+    //const section = gsap.utils.toArray('.section').map((section) => section.getBoundingClientRect().top);
+
+    gsap.utils.toArray(".section").forEach((section, index) => {
+      //console.log(section, index);
+      ScrollTrigger.create({
+        trigger: section,
+        start: () => `top ${nav.offsetHeight}px`,
+        end: () => `bottom ${nav.offsetHeight}px`,
+        //animation: gsap.to(nav,{backgroundColor:navColor[index]}),
+        animation: gsap.to(nav, { backgroundColor: navColor[index],immediateRender:false }),
+        markers: true,
+        //                E      L    EB   LB
+        toggleActions: "restart none none reverse",
+      });
+    });
+
+    /* 문제: 자꾸 꿈벅거리면서 바뀌고 1번 색상이 잠시 보이고 있음,to는 괜찮지만 from은 모두 1번째거로 시작이 되고 있기 때문
+    런타임 렌더링 : 즉시 렌더링되는것을 강제로 제어할수 있다.
+    from()과 fromTo() 트윈의 경우는 GSAP은 immediateRender를 true로 기본값을 가진다.
+    immediateRender를 false로 꺼둬야 스크롤트리거가 여러번 생성이 되었을때 to tween 은 부터의 위치를 제일 처음 시작한 렌더의 위치로 잡지 않는다. */
+
+    gsap.utils.toArray('.nav li').forEach((li,index) => {
+      //console.log(li);
+      li.addEventListener('click',()=>{
+        //console.log(index);
+
+        //scrollbar.scrollTo(0, 2000 ,600);  //2000만큼 움직임
+        //scrollbar.scrollTo(0, innerHeight * index ,600);  //섹션마다 높이가 달라질수 있으므로
+        //scrollbar.scrollTo(0, section[index] ,600); //브라우저의 크기가 달라지면 잘 안됨
+
+        //console.log(ScrollTrigger.getAll()[3].start + nav.offsetHeight);
+        let sectionTop = ScrollTrigger.getAll()[index].start + nav.offsetHeight;
+        scrollbar.scrollTo(0, sectionTop ,600);
+      });
+    }); 
+
+    //ScrollTrigger.getAll(); -> 콘솔에서 확인
+
+    markers();
+  </script>
+</body>
+</html>

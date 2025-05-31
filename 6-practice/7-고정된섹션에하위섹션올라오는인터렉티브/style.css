@@ -1,0 +1,172 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Noto+Sans+KR&family=Questrial&display=swap');
+
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+address, em, i{font-style: normal;}
+button{background: none;border:none;outline: none;}
+img{vertical-align:top;}
+.en{font-family: "Montserrat", sans-serif;}
+.en2{font-family: "Cormorant Garamond", serif;}
+
+
+/* Layout */
+.en1 {font-family: 'Questrial', sans-serif; letter-spacing: -1px;}
+.en2 {font-family: 'Cinzel', serif; letter-spacing: -1px;}
+.en3 {font-family: 'Noto Sans KR', sans-serif;}
+
+body {
+  font-size: 16px; 
+  line-height: 1.6; 
+  background: #f8f8f4;
+}
+.wrap {
+  width: 100%; 
+  margin: 0 auto; 
+  overflow: hidden; 
+  position: relative;
+}
+section {
+  width: 100%; 
+  height: 110vh;
+}
+.section01 .cloneWrap {background: #5f5c53; color: #fff;}
+.section02 .cloneWrap {background: #000; color: #fff;}
+.section03 .cloneWrap {background: #222; color: #fff;}
+.section04 .cloneWrap {background: #454545; color: #fdfdfd;}
+.section05 .cloneWrap {background: #2c2c2c; color: #666;}
+.section06 .cloneWrap {background: #fff; color: #000;}
+.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
+
+
+.cloneWrap {
+  border-radius: 50px 50px 0 0; 
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.3); 
+  overflow: hidden; 
+  height: 100%; 
+  position: relative;
+}
+.cloneWrap:after{
+  content: '';
+  width: 1px;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,0.8);
+}
+.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
+.cloneWrap .contBox {
+  display: flex; 
+  justify-content: space-between;
+}
+
+.cloneWrap .contBox li.left {width: 50%;}
+.cloneWrap .contBox li.left a {
+  display: block; 
+  width: 100%; 
+  height: 100%;
+}
+.cloneWrap .contBox li.left a p.img{width: 100%;}
+.cloneWrap .contBox li.left a p.img img{width: 100%;}
+
+
+.cloneWrap .contBox li.right {
+  width: 50%; 
+  padding: 150px 0 100px; 
+  box-sizing: border-box;
+}
+.cloneWrap .contBox li.right .tit {
+  font-size: 120px; 
+  line-height: 0.9; 
+  margin-bottom: 85px;
+}
+.cloneWrap .contBox li.right .tit span {display: block;}
+.cloneWrap .contBox li.right .txtBox {
+  width: 60%; 
+  line-height: 1.5;
+  /* background-color: yellow; */
+}
+.cloneWrap .contBox li.right .txtBox .eng {
+  font-size: 26px; 
+  line-height: 1.2; 
+  margin-bottom: 30px;
+}
+.cloneWrap .contBox li.right .txtBox .kor {
+  font-size: 15px; 
+  margin-bottom: 20px; 
+  letter-spacing: -1px;
+}
+.cloneWrap .contBox li.right .txtBox .skill li{
+  margin-bottom: 10px; 
+  padding-left: 20px;
+  position: relative;
+}
+.cloneWrap .contBox li.right .txtBox .skill li::before {
+  content: ''; 
+  width: 5px; 
+  height: 5px; 
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5); 
+  position: absolute; 
+  left: 0; 
+  top: 50%; 
+  transform: translateY(-50%);
+}
+.section02 .cloneWrap .contBox li.right .txtBox .skill li::before,
+.section03 .cloneWrap .contBox li.right .txtBox .skill li::before{
+  background: rgba(255,255,255,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .cloneWrap .content {width: 1px; height: 60%; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.5);}
+.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
+
+
+
+
+.cloneWrap .contBox li.left a p img {width: 100%;}
+.section05 .cloneWrap .contBox li.right .tit {letter-spacing: -6px;}
+.section02 .cloneWrap .contBox li.right .tit span,
+.section05 .cloneWrap .contBox li.right .tit span {display: inline;} */
+
+/* scrolla.splitting animation */
+.contBox li.right .tit.motion .char {
+  display: inline-block;
+  animation: slide_up 0.4s cubic-bezier(.5,0,.5,1) both;
+  animation-delay: calc(100ms * var(--char-index));
+}
+
+@keyframes slide_up {
+  0% {transform: translateY(30px); opacity: 0;}
+  30% {transform: translateY(30px); opacity: 0;}
+}
+
+@keyframes slide_up2 {
+  0% {transform: translateY(150px); opacity: 0;}
+  30% {transform: translateY(150px); opacity: 0;}
+}
+
+.cloneWrap .contBox li.right .txtBox.motion .eng {animation: slide_up2 1s;}
+.cloneWrap .contBox li.right .txtBox.motion .kor {animation: slide_up2 1.3s;}
+.cloneWrap .contBox li.right .txtBox.motion .skill {animation: slide_up2 1.6s;} 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: black;
+    }
+
+    .stage{
+      width: 500px;
+      height: 350px;
+      background: gray;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+
+    }
+
+    .smile{
+      width: 150px;
+      height: 126px;
+      background: url(smile.png);
+      background-size: cover;
+      position: absolute;
+      top: 100px;
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="smile"></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://assets.codepen.io/16327/GSDevTools3.min.js"></script>
+  <script>
+    /* const tl = gsap.timeline();
+    tl.from('.stage',{autoAlpha:0})
+    tl.to('.smile',{
+      keyframes:{
+        "0%":{x:0},
+        "30%":{x:420},
+        "60%":{x:0},
+        "100%":{x:420},
+      },
+      duration:3
+    }) */
+
+    const tl = gsap.timeline();
+    tl.from('.stage',{autoAlpha:0})
+    tl.to('.smile',{
+      keyframes:{
+        "0%":{x:0},
+        "30%":{x:420},
+        "50%":{scale:2},
+        "60%":{x:0},
+        "70%":{scale:1},
+        "100%":{x:420},
+      },
+      duration:3
+    })
+
+    GSDevTools.create();
+  </script> 
+</body>
+</html>

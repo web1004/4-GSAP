@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-기초트위닝</title>
+  <style>
+    body{background: #ccc;}
+    .blue{
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  <div class="blue"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    //gsap.to('선택자',{실행문문});
+    gsap.to('.blue',{x:400, y:300, scale:3, backgroundColor: 'red', rotation:360, duration:3});
+    //재생속도를 정하지 않았다면 기본 0.5s(500ms)를 사용함
+    //요소검사 확인
+  </script>
+
+</body>
+</html>
+
+<!-- 
+*Tween 은 3가지의 methods 를 가지고 있다.
+gsap.to()  : ~어디까지(끝지점을 정해놓으면 그 지점까지 움직이는것)
+gsap.from()   : 어디부터~(원래 위치에서 어디부터 와라를 지정, 초기위치를 설정해놓고 애니메이션을 원래 위치로 되돌릴수 있다.)
+gsap.fromTo()  : 어디부터 어디까지(to와 from 을 합친것)
+
+
+x:100 -> transform:translateX(100px)
+rotation:360 -> transform: rotate(360deg)
+skewX:45 -> transform: skewX(45deg)
+scale:2 -> transform: scale(2, 2)
+xPercent:-50 -> transform: translateX(-50%)
+yPercent:-50 -> transform: translateY(-50%)
+
+*브라우저의 성능을 최대치로 끌어올리기 위해선 CSS transform과 opacity의 애니메이션을 사용해야 한다.
+
+-->

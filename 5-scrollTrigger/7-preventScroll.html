@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-preventScroll</title>
+  <!-- 애니메이션이 진행되는 동안 스크롤을 막음 -->
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #fd9fe9;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    #container{
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .section01{
+      height: 150vh;
+      overflow: hidden;
+    }
+    .text_container{
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      transform: translateX(-50%);
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      z-index: 100;
+    }
+    .text_container div{
+      font-size: 5vw;
+      white-space: nowrap;
+    }
+    .text_container span{
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Arial',sans-serif;
+    }
+    .image_container{
+      display: flex;
+      gap:2rem;
+      justify-content: center;
+      width: 200vw;
+      align-items: center;
+      padding-top: 20rem;
+    }
+    .image_container div img{width: 100%;}
+    .small{width: 100%;}
+    .medium{width: 130%;}
+    .large{width: 200%;}
+
+    /* 맨위에 전체 풀크기의 투명한 크기를 올려놓음음 */
+    #no-scroll{
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 9999;
+      /* display: none; */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="no-scroll"></div>  
+  
+  <div id="container">   
+    <section class="section section01">
+      <div class="text_container">
+        <span class="elem">partner in every way</span>
+        <h1>
+          <div class="elem">design the <span>futher</span></div>
+          <div class="elem">gain the edge</div>
+        </h1>
+      </div>
+
+      <div class="image_container">
+        <div class="small"><img src="img/img-1.jpg" alt=""></div>
+        <div class="medium"><img src="img/img-2.jpg" alt=""></div>
+        <div class="large"><img src="img/img-3.jpg" alt=""></div>
+        <div class="medium"><img src="img/img-4.jpg" alt=""></div>
+        <div class="small"><img src="img/img-5.jpg" alt=""></div>
+
+        <div class="small"><img src="img/img-1.jpg" alt=""></div>
+        <div class="medium"><img src="img/img-2jpg" alt=""></div>
+        <div class="large"><img src="img/img-3.jpg" alt=""></div>
+        <div class="medium"><img src="img/img-4.jpg" alt=""></div>
+        <div class="small"><img src="img/img-5.jpg" alt=""></div>
+      </div>
+    </section>
+    
+    <section class="section section02"><h2>secton2</h2></section>
+    <section class="section section03"><h2>secton3</h2></section>
+    <section class="section section04"><h2>secton4</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/markers.js"></script>
+  <script>
+    //(1)
+    // gsap.from('.image_container div',{
+    //   x:innerWidth,
+    //   stagger:{
+    //     amount:0.5,
+    //   },
+    //   duration:3,
+    //   ease:'power3.inOut'
+    // });
+
+    //(2)
+    // const tl = gsap.timeline()
+    // .from('.image_container div',{
+    //   x:innerWidth,
+    //   stagger:{
+    //     amount:0.5,
+    //   },
+    //   duration:3,
+    //   ease:'power3.inOut'
+    // })
+    // .to('.image_container div',{
+    //   y:innerHeight * 0.2,
+    //   stagger:{
+    //     amount:0.5
+    //   },
+    //   duration:3,
+    //   ease:'power3.inOut'
+    // }) 
+
+
+    //(3)
+    const tl = gsap.timeline({
+      defaults:{
+        duration:3,
+        ease:'power3.inOut'
+      },
+      // onComplete:()=>{
+      //   console.log('complete');
+      // }
+    })
+    .from('.image_container',{
+      x:innerWidth,
+      stagger:{
+        amount:0.5,
+      },
+    })
+    .to('.image_container>div',{
+      y:innerHeight * 0.2,
+      stagger:{
+        amount:0.5,
+        //from:'center' -> 동일한 구조를 2개 놓은 상태라 가운데가 다름
+        from:2  //index번호로 지정
+      },
+    },'-=1.5')
+    .from('.text_container .elem',{
+      y:30,
+      opacity:0,
+      stagger:{
+        each:0.2,
+        ease:'power3.inOut'
+      },
+      duration:1
+    },'-=2')
+
+    tl.eventCallback('onComplete',()=>{
+      gsap.set('#no-scroll',{display:'none'})
+    })
+
+    ScrollTrigger.create({
+      trigger: '.section01',
+      start: 'top top',
+      end: 'bottom top',
+      animation: gsap.to('.image_container',{x: -innerWidth * 0.5}),
+      // markers:true,
+      scrub: true,
+    }) 
+
+    markers();
+  </script>
+</body>
+</html>

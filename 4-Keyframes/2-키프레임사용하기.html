@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: black;
+    }
+
+    .stage{
+      visibility:hidden;  /* 추가 */
+      width: 500px;
+      height: 350px;
+      background: #333;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      overflow:hidden;
+      perspective:700px;
+    }
+
+    .character{
+      position: absolute;
+      top: 100px;
+      transform: translateX(-100%); /* 추가 */
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="character"><img src="girl.png" alt=""></div>  
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+    <div class="character"><img src="girl.png" alt=""></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    // gsap.to('.character',{
+    //   keyframes:{
+    //     "0%":{},
+    //     "25%":{y:0, ease: "sine.out",},  
+    //     "50%":{y:-100, rotation:360,ease: "sine.in"},  
+    //     "75%":{y:0},
+    //     "100%":{x:500}
+    //   },
+    //   duration:2,
+    //   // stagger:0.2
+    //   stagger:{
+    //     //amount:1, 1초안에 다 나옴
+    //     each:0.5,
+    //   }
+    // });
+
+    //배경이 먼저 나오고 그 다음에 캐릭터 등장
+    // let tl = gsap.timeline();
+    // tl.to('.stage',{autoAlpha:1})
+    // tl.to('.character',{
+    //   keyframes:{
+    //     "0%":{},
+    //     "25%":{y:0, ease: "sine.out",},
+    //     "50%":{y:-100, rotation:360,ease: "sine.in"},
+    //     "75%":{y:0},
+    //     "100%":{x:500}
+    //   },
+    //   duration:2,
+    //   stagger:{
+    //     //amount:1,
+    //     each:0.5,
+    //   }
+    // })
+
+    function init(){
+      let tl = gsap.timeline();
+      tl.to('.stage',{autoAlpha:1, duration:3})
+      tl.to('.character',{
+        keyframes:{
+          "0%":{},
+          "25%":{y:0, ease: "sine.out",},
+          "50%":{y:-100, rotation:360,ease: "sine.in"},
+          "75%":{y:0},
+          "100%":{x:500}
+        },
+        duration:2,
+        stagger:{
+          //amount:1,
+          each:0.5,
+        }
+      })
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      init();
+    });
+  </script> 
+</body>
+</html>

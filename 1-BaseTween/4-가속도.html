@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-가속도</title>
+  <style>
+    body{background: #ccc;}
+    .blue{
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+    .green{
+      width: 100px;
+      height: 100px;
+      background: green
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="blue"></div>
+  <hr>
+  <div class="green"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script>
+    gsap.to('.blue',{x:600,duration:3,ease: 'bounce.inOut'});
+   //gsap.to('.green',{x:600,duration:3,ease:'linear'});
+    gsap.to('.green',{x:600,duration:3,ease:'power3.inOut'});
+
+  </script>
+
+</body>
+</html>
+
+<!-- 
+ease는 애니메이션이 재생될 때의 변경 속도를 제어한다.
+가속도 제어는 ease를 기본값으로 가지며, 커브가 가파를수록 더 급격한 변화를 만들 수 있다.
+
+ease:"bance" 애니메이션이 빠질때 바운스된다.
+ease:"bance.in" 애니메이션이 들어올때 바운스된다.
+ease:"bance.inOut" 애니메이션이 들어오고 빠질때 바운스된다.
+-->

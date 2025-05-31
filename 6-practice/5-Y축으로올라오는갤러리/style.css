@@ -1,0 +1,141 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+address, em, i{font-style: normal;}
+button{background: none;border:none;outline: none;}
+img{vertical-align:top;}
+.en{font-family: "Montserrat", sans-serif;}
+.en2{font-family: "Cormorant Garamond", serif;}
+
+
+/* Layout */
+.con01, .con03 {
+  width: 100%;
+  height: 100vh;
+  background: #1f1f1f;
+  color: #ece0c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.con01 .textBox, .con03 .textBox {
+  text-align: center;
+}
+.con01 .textBox .logo {
+  width: 150px;
+  margin: 0 auto 25px;
+}
+.con01 .textBox .logo img {
+  width: 100%;
+}
+.con01 .textBox .title {
+  font-size: 68px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  letter-spacing: -1px;
+  color: #f45b4b;
+}
+.con01 .textBox .txt {
+  letter-spacing: -1px;
+  font-size: 18px;
+}
+
+/* gallery */
+.gallery {
+  width: 100%;
+  background: #f86634;
+  color: #fff;
+  padding: 250px 0;
+}
+.gallery .inner {
+  /* background-color: green; */
+  width: 70%;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.gallery .inner .textBox {
+  width: 45%;
+  padding-top: 65px;
+}
+.gallery .inner .textBox h2 {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+.gallery .inner .textBox h2 span {
+  display: block;
+  font-style: italic;
+  font-size: 120px;
+  margin-bottom: 10px;
+}
+.gallery .inner .textBox .txt {
+  font-size: 14px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.gallery .inner .textBox ul {
+  font-size: 18px;
+  width: 300px;
+  margin-left: 42px;
+  margin-bottom: 30px;
+}
+.gallery .inner .textBox ul li {
+  line-height: 2.3;
+  position: relative;
+}
+.gallery .inner .textBox ul li::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background: #fff;
+}
+.gallery .inner .textBox .btn {
+  display: block;
+  width: 150px;
+  height: 50px;
+  background: #171717;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50px;
+}
+.gallery .inner .imgBox {
+  width: 50%;
+  position: relative;
+}
+.gallery .inner .imgBox li {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 550px;
+  height: 450px;
+  opacity: 1;
+}
+.gallery .inner .imgBox li.img1 {transform: translateY(-50%) rotate(5deg); z-index: 1;}
+.gallery .inner .imgBox li.img2 {transform: translateY(-50%) rotate(-5deg); z-index: 2;}
+.gallery .inner .imgBox li.img3 {transform: translateY(-50%) rotate(7deg); z-index: 3;}
+.gallery .inner .imgBox li.img4 {transform: translateY(-50%) rotate(-7deg); z-index: 4;}
+.gallery .inner .imgBox li.img5 {transform: translateY(-50%) rotate(2deg); z-index: 5;}
+.gallery .inner .imgBox li.img6 {transform: translateY(-50%) rotate(-3deg); z-index: 6;}
+.gallery .inner .imgBox li.img7 {transform: translateY(-50%) rotate(0deg); z-index: 7;}
+.gallery .inner .imgBox li img {
+  width: 100%;
+}
+
+.con03 h2 {
+  font-size: 80px;
+  text-transform: uppercase;
+}

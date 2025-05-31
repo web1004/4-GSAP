@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  }
+
+  body{
+    background: #242424;
+  }
+  .stage{
+    visibility: hidden;  /* 추가 */
+    width: 1500px;
+    height: 700px;
+    background: #83FFE1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+  }
+  .contents{
+    position: absolute;
+    left: 100px;
+    top: 170px;
+    z-index: 10;
+  }
+  h1{
+    font-size: 80px;
+    font-weight: 800;
+    font-family: 'Pretandard',sans-serif;
+  }
+  h2{
+      font-size: 60px;
+      font-weight: 100;
+      margin-top: -29px;
+      margin-bottom: 50px;
+  }
+  p{
+    font-size: 30px;
+    font-weight: 300;
+    color: #4B4B4B;
+    margin-bottom: 50px;
+  }
+  button{
+    color: #fff;
+    font-size: 20px;
+    padding: 16px 33px;
+    background:#FF83C6;
+    border:none;
+    border-radius: 30px;
+  }
+  .planet > img:nth-child(1){
+    position: absolute;
+    right: 259px;
+    top: -23px; 
+  }
+  .planet > img:nth-child(2){
+    position: absolute;
+    right: -80px;
+    top: 326px;
+  }
+  .planet > img:nth-child(3){
+    position: absolute;
+    right: -210px;
+    bottom: -582px;
+  }
+  .planet > img:nth-child(4){
+    position: absolute;
+    left: -330px;
+    top: -619px;
+  }
+  .planet > img:nth-child(5){
+    position: absolute;
+    right: -380px;
+    top: -270px;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+
+    <div class="contents">
+      <h1>PLANET</h1>
+      <h2>EXPLORATION</h2>
+      <p>Let's explore the planets in <br>space together</p>
+      <button>READ MORE</button>
+    </div>
+
+    <div class="planet">
+      <img src="img/12.png" alt="">
+      <img src="img/13.png" alt="">
+      <img src="img/14.png" alt="">
+      <img src="img/15.png" alt="">
+      <img src="img/17.png" alt="">
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://assets.codepen.io/16327/GSDevTools3.min.js"></script>
+  <script>
+    const tl = gsap.timeline({ defaults:{opacity:0, ease:'back'}})
+
+    // tl.from('.stage',{ease:'linear',autoAlpha:0})  //visibility해제하고 Opacity도 1로
+    //     .from('h1',{x:-50})
+    //     .from('h2',{x:50},'<')
+    //     .from('p',{x:-50},'-=0.2')
+    //     .from('button',{y:30},'-=0.4')
+    //     .from('.planet > img',{scale:0,stagger:0.1},'-=0.5')
+
+
+    function init(){
+      tl.from('.stage',{ease:'linear',autoAlpha:0})  //visibility해제하고 Opacity도 1로
+        .from('h1',{x:-50})
+        .from('h2',{x:50},'<')
+        .from('p',{x:-50},'-=0.2')
+        .from('button',{y:30},'-=0.4')
+        .from('.planet > img',{scale:0,stagger:0.1},'-=0.5')
+    };
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      init();
+    });
+
+    //GSDevTools.create();
+  </script>  
+</body>
+</html>
+
+<!--  
+FOUC
+Flash of Un-styled Content (FOUC) 는 스타일이 지정되어 있지 않은 요소들이 화면에 랜더링 될 경우 콘텐츠의 깜빡이는 플래시 효과를 나타내는 용어이다.
+가장 일반적으로 웹폰트가 로드되기 전에 페이지 렌더링 상태에서 기본 글꼴이 나오고 적용된 웹폰트로 변경되는 모습을 상상하시면 됩니다. 
+사용자에게 가장 빠른 로딩 경험을 제공 하기 위해 <body> 태그 끝나기 전에 사용자 정의 스크립트를 로드하는 것이 좋고 또는 defer 명령어를 사용하는 것도 좋은 방법중 하나 입니다.
+
+*FOUC를 피하기 위한 단계별 수행 항목
+- 보이지 않아야 할 요소를 감싸고 있는 전체 부모 요소에게 CSS visibility: hidden 속성 부여하기
+- GSAP의 Special 속성인 autoAlpha : 0 설정
+- 애니메이션 코드를 init() 함수로 래핑
+- 로드 이벤트 리스너를 사용하여 페이지가 로드 된 후 init() 함수를 호출
+
+-->

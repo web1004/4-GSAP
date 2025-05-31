@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrap">
+    <section class="visual animate" data-animate="motion">
+      <div class="inner">
+        <div class="textBox">
+          <p class="title">my <span class="en2">Work</span></p>
+          <p class="subtitle">
+            D&C solution relies on a dynamic approach between experimentation, technology and creativity in which  
+            the right emotional drive allows the achievement of the goal.
+          </p>
+          <p class="text en2">
+            Through an extremely functional design, attentive to usability and ease of browsing we make every user  
+            of our projects live a unique and innovative experience
+          </p>
+        </div>
+        <div class="aniBox">
+          <img src="images/sub/work/spin.png" class="spin">
+          <img src="images/readMore1.png" class="arrow">
+        </div>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="counter en">
+        <span class="now"></span>
+        <span class="all en2">/ 6</span> <!-- 전체 프로젝트 수 -->
+      </div>
+      <ul>
+        <li>
+          <a href="#">
+            <div class="num" data-text="1"></div>
+            <div class="imgBox">
+              <img src="images/work1.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="num" data-text="2"></div>
+            <div class="imgBox">
+              <img src="images/work2.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="num" data-text="3"></div>
+            <div class="imgBox">
+              <img src="images/work3.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="num" data-text="4"></div>
+            <div class="imgBox">
+              <img src="images/work4.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="num" data-text="5"></div>
+            <div class="imgBox">
+              <img src="images/work5.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="num" data-text="6"></div>
+            <div class="imgBox">
+              <img src="images/work6.jpg" alt="">
+            </div>
+            <div class="textBox">
+              <p class="title">Site name</p>
+              <p class="text en2">UI/UX Design, Web Publishing</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="con3">
+      <h2>Thank you</h2>
+    </section>
+  </div>
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="plugin/scrolla.jquery.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- 
+scrolla.jquery.min.js 는 jQuery 기반의 스크롤 애니메이션 플러그인
+이 플러그인은 사용자가 스크롤을 내릴 때 특정 요소에 애니메이션 효과를 적용할 수 있게 해주는 간단한 "스크롤 트리거 애니메이션" 도구이다.
+
+스크롤에 따라 특정 요소가 뷰포트에 들어오면 클래스(animated)를 추가하여 애니메이션을 실행
+한 번만 애니메이션 실행하거나 반복 실행 설정 가능
+요소가 보이는 시점을 감지하는 기능이 내장되어 있어, 추가적인 뷰포트 계산이 필요 없음
+-->

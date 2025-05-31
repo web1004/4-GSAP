@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-scrollerProxy</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #ffffff;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    #container{  /* 크기를 반드시 지정정 */
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    .deep{
+      width: 50vw;
+      height: 100vh;
+    }
+    .deepSection{
+      width: 100%;
+      height: 50vh;
+      background: orange;
+      overflow-x: hidden;
+    }
+    .deepSection:nth-child(even){background: dodgerblue;}
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <section class="section section01"><h2>section1</h2></section>
+    <section class="section section02"><h2>section2</h2></section>
+    <section class="section section03">
+      <div class="deep">
+        <div class="deepSection"></div>
+        <div class="deepSection d2">
+          <div class="text">text</div>
+        </div>
+        <div class="deepSection"></div>
+      </div>
+    </section>
+    <section class="section section04"><h2>section4</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+  <!-- <script src="js/settings.js"></script> -->
+  <script src="js/markers.js"></script>
+
+  <script>
+    const scrollElement = [
+      {
+        target: document.querySelector('#container'),
+        scrollName:null,
+        marker:'main'
+      },
+      {
+        target: document.querySelector('.deep'),
+        scrollName:null,
+        marker:'deep'
+      },
+    ]
+
+    const options = {
+      damping:0.08,
+      alwaysShowTracks:true
+    };
+
+    scrollElement.forEach((elem)=>{
+      elem.scrollName = Scrollbar.init(elem.target, {...options})
+
+      ScrollTrigger.scrollerProxy(elem.target, {
+        scrollTop(value) {
+          if (arguments.length) {
+            elem.scrollName.scrollTop = value; // setter
+          }
+          return elem.scrollName.scrollTop;    // getter
+        }
+      });
+
+      elem.scrollName.addListener(ScrollTrigger.update);
+    });
+
+
+    ScrollTrigger.create({
+      trigger: '.section02',
+      start: 'top center',
+      end: 'bottom center',
+      scroller:scrollElement[0].target,
+      animation: gsap.to('.section02 h2',{x:500}),
+      markers: true,
+      scrub: true,
+      id: scrollElement[0].marker
+    });
+
+    ScrollTrigger.create({
+      trigger: '.d2',
+      start: 'top center',
+      end: 'bottom center',
+      scroller:scrollElement[1].target,
+      animation: gsap.to('.text',{x:200}),
+      markers: true,
+      scrub: true,
+      id: scrollElement[1].marker
+    });
+
+    scrollElement.forEach((elem)=>{
+      if(document.querySelector('.gsap-marker-scroller-start')){
+        const markers = gsap.utils.toArray(`[class *= "marker-${elem.marker}"]`)
+      
+        elem.scrollName.addListener(({offset})=>{
+          gsap.set(markers,{marginTop : -offset.y})
+        })        
+      }
+    });
+  </script>
+</body>
+</html>
+
+<!-- 
+스크롤을 해야 하는 대상이 있다고 했을때
+그걸 담고 있는 컨테이너의 크기는 스크롤 대상의 크기보다 작아야 한다.
+스크롤이 되야 하는 부모에게 크기를 반드시 지정해줘야 한다.
+
+*구글검색 : smooth scrollbar
+https://idiotwu.github.io/smooth-scrollbar/
+
+-->
+
+

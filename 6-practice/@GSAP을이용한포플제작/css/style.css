@@ -1,0 +1,482 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital@1&family=Noto+Sans+KR&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+a {color: inherit; text-decoration: inherit;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+button {background: none; border: none;}
+img {vertical-align: middle;}
+
+
+/*  영어폰트 */
+.en{font-family: "Public Sans", sans-serif;}
+.en2{font-family: "Cormorant Infant", serif;}
+
+/* Layout */
+body{
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+#wrap{
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+  /* margin-bottom: 3000px; */
+}
+
+
+/* Header___________________ */
+header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+  padding: 30px 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+header .logo{
+  color: #fff;
+}
+header .menuOpen{
+  display: none;
+  transition: 0.3s;
+}
+
+.gnb ul{
+  display: flex;
+  justify-content: space-between;
+  column-gap: 70px;
+}
+.gnb ul li a{display: block;}
+
+/* Gnb Hover Effect */
+.gnb ul li a .char{
+  display: inline-block;
+  position: relative;
+  color: transparent;
+  overflow: hidden;
+}
+.gnb ul li a .char:before,
+.gnb ul li a .char:after{
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+  color: #fff;
+  transition: transform 0.35s;
+  transition-delay: calc(30ms * var(--char-index));
+}
+.gnb ul li a .char:before{
+  transform: translateY(100%);
+}
+.gnb ul li a:hover .char:before{
+  transform: translateY(0%);
+  opacity: 1;
+}
+.gnb ul li a:hover .char:after{transform: translateY(-100%);}
+
+/* Visual_____________________ */
+.visual{
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+  box-sizing: border-box;
+  position: relative;
+  letter-spacing: -1px;
+}
+.visual .mainText{
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 1.2;
+  /* margin: 0px 0px 150px 60px; */
+  display: inline-block;
+  /* background-color: red; */
+}
+.visual .mainText p{overflow: hidden;}
+.visual .subText{margin-left: 20%;}
+.visual .scroll{
+  position: fixed;
+  left: 60px;
+  bottom: 40px;
+}
+.visual .svgAni{
+  position: absolute;
+  top: 9%;
+  right: -2%;
+  width: 55%;
+  transform: rotate(-10deg);
+}
+
+
+/* Seciion1 /////////////*/
+.s1{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.s1 .videoWrap video{
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+.s1 .title{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.s1 .title h2{
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+
+/* Seciion2 /////////////*/
+/* .s2{padding-bottom: 1000px;}  ->끝이 없어서 확인하기위해 임시로 넣음*/
+.s2 .title{
+  width: 100%;
+  height: 100vh;
+  font-size: 170px;
+  line-height: 0.9;
+  text-align: center;
+  padding-top: 30vh;
+  box-sizing: border-box;
+}
+.s2 .title .en2{font-size: 220px;}
+.s2 .workList{
+  width: 70%;
+  /* background-color: red; */
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.s2 .workList li{
+  width: 45%;
+  margin-top: 200px;
+  /* border: 1px solid red; */
+}
+.s2 .workList li:nth-child(2n){margin-top: 0;}
+.s2 .workList li a{display: block;}
+.s2 .workList li a .imgBox img{
+  width: 100%;
+}
+.s2 .workList li a .textBox h3{
+  font-size: 35px;
+  font-weight: normal;
+  margin: 20px 0 5px;
+}
+.s2 .workList li a .textBox .info{
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+}
+
+.s2 .workList li a .imgBox{position: relative;}
+.s2 .workList li a .imgBox:before{
+  content: '';
+  width: 168px;
+  height: 168px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  background: url(../images/readMore2.png) no-repeat center/35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+  z-index: 2;
+  opacity: 0;
+  transition: 0.3s;
+}
+.s2 .workList li a .imgBox:after{
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-radius: 100%;
+  background: #fff url(../images/readMore3.png) no-repeat center/160px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+  z-index: 1;
+  transition: 0.4s;
+  animation: spin 10s infinite linear;
+}
+
+.s2 .workList li a:hover .imgBox:before{opacity: 1;}
+.s2 .workList li a:hover .imgBox:after{
+  width: 168px;
+  height: 168px;
+}
+.s2 .workList li a:hover .imgBox img{filter: brightness(50%);}
+
+
+/* Seciion3 /////////////*/
+.s3{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin-top: 200px;
+  /* background-color: red; */
+}
+.s3 .textWarp{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  width: 70%;
+  /* background-color: blue; */
+}
+.s3 .textWarp .title{font-size: 18px;}
+.s3 .textWarp ul li{
+  font-size: 100px;
+  line-height: 1.2;
+}
+.s3 .textWarp ul li .en2{padding-left: 5px;}
+
+.s3 .btnWrap{
+  position: absolute;
+  /* right: 50px; */
+  right: -50%;
+  top: 60%;
+  z-index: 3;
+}
+.s3 .btnWrap a{
+  display: block;
+  width: 170px;
+  height: 170px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  position: relative;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+.s3 .btnWrap a:before{
+  content: '';
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  background: #fff url(../images/readMore3.png) no-repeat center/158px;  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  animation: spin 10s infinite linear;
+  transition: 0.4s;
+}
+.s3 .btnWrap a img{
+  width: 22%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+.s3 .btnWrap a img:nth-child(2){opacity: 0;}
+
+.s3 .btnWrap a:hover{border: transparent;}
+.s3 .btnWrap a:hover:before{width: 100%;height: 100%;}
+.s3 .btnWrap a:hover img:nth-child(2){opacity: 1;}
+
+/* simplyscroll */
+.s3 .list{
+  display: flex;
+}
+
+/* 아래 소스 적용되지않음음 */
+.simply-scroll .simply-scroll-clip{
+  overflow: hidden;
+  transform: rotate(5deg) translate(150%,400px) scale(1.1);opacity: 0;
+}
+.simply-scroll .simply-scroll-clip .simply-scroll-list li{
+  float: left;
+  width: 400px;
+  filter: brightness(50%);
+}
+.simply-scroll .simply-scroll-clip .simply-scroll-list li img{width: 100%;}
+
+/* simplyscroll motion */
+.s3.motion .simply-scroll .simply-scroll-clip{
+  transform: rotate(5deg) translate(0%,400px) scale(1.1);
+  opacity: 1;
+  transition: 1.2s;
+  transition-delay: 0.3s;
+}
+.s3.motion .btnWrap{
+  right: 50%;
+  transition: 1.2s;
+}
+.s3.motion .textWarp ul li p{
+  animation: text-ani 1.3s;
+}
+
+
+
+/* Footer___________________ */
+footer{
+  width: 100%;
+  /* background-color: red; */
+  position: relative;
+  height: 100vh;
+}
+footer .textWarp{
+  position: absolute;
+  width: 100%;
+  /* background-color: blue; */
+  top: 30%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  font-size: 160px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+footer .textWarp .title{
+  font-size: 20px;
+  margin-bottom: 30px;
+  padding-left: 15px;
+}
+footer .textWarp .contact{
+  margin-bottom: 10px;
+}
+footer .textWarp a{
+  display: block;
+  margin-top: -30px;
+}
+footer .bottom{
+  position: absolute;
+  bottom: 5%;
+  /* background-color: green; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-sizing: border-box;
+  font-size: 30px;
+  letter-spacing: -1px; 
+}
+footer .bottom .sns{display: flex;}
+footer .bottom .sns li{margin-right: 30px;}
+
+
+
+
+/* Active_________________ */
+header.active{
+  transform: translateY(-100%);
+}
+
+
+
+
+/* Animation__________________ */
+.visual.motion .mainText{
+  transform: translate3d(0,0,0) skewY(0deg);
+  overflow: hidden;
+}
+.visual.motion .mainText p span{
+  display: block;
+  animation: text-ani 1.8s;
+}
+.visual.motion .mainText p:nth-child(2) span{animation-duration: 1.7s;}
+.visual.motion .mainText p:nth-child(3) span{animation-duration: 1.5s;}
+
+@keyframes text-ani{
+  0%{opacity: 0;}
+  30%{
+    opacity: 0;
+    transform: translate3d(0,-90px,0) skewY(-10deg);
+    transform-origin: top left;
+  }
+}
+
+@keyframes text-ani2{
+  0%{opacity: 0;}
+  30%{opacity: 0;}
+}
+
+@keyframes spin{
+  0%{transform: translate(-50%,-50%) rotate(0deg);}
+  100%{transform: translate(-50%,-50%) rotate(360deg);}
+}
+
+.visual.motion .subText{
+  animation: text-ani2 2.3s;
+}
+
+
+/* SVG Motion________________ */
+.visual.motion #svgAni01{
+  stroke-dasharray: 674;
+  stroke-dashoffset: 0;
+  animation: ani1 0.5s linear 2s forwards;
+}
+.visual.motion #svgAni03{
+  stroke-dasharray:3060;
+  stroke-dashoffset: 0;
+  animation: ani3 2s linear 0.1s forwards;
+}
+.visual.motion #svgAni04{
+  stroke-dasharray: 65;
+  stroke-dashoffset: 0;
+  animation: ani4 0.2s linear 1s forwards;
+}
+.visual.motion #svgAni05{
+  stroke-dasharray: 56;
+  stroke-dashoffset: 0;
+  animation: ani5 0.2s linear 0s forwards;
+}
+
+@keyframes ani1{
+  0%{stroke-dashoffset: 675;}
+  100%{stroke-dashoffset: 0;}
+}
+@keyframes ani3{
+  0%{stroke-dashoffset: 3060;}
+  100%{stroke-dashoffset: 0;}
+}
+@keyframes ani4{
+  0%{stroke-dashoffset: 65;}
+  100%{stroke-dashoffset: 0;}
+}
+@keyframes ani5{
+  0%{stroke-dashoffset: 56;}
+  100%{stroke-dashoffset: 0;}
+}
+
+
+
+
+
+
+
+/* 
+클립패스는 포토샵의 패스마스크처럼 패스영역만 보이게 함
+사용법으로 는 inset, 동그라미, 다각형, 패스 등이 있고
+inset은 잘라내기 클립패스입니다
+
+- inset(상하, 좌우);
+- inset(상, 좌우, 하)
+- inset(10%) =>상,하,좌,우
+- inset(top, right, bottom, left입니다.)
+
+*/

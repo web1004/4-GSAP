@@ -1,0 +1,36 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318 241">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e17b2d;
+      }
+
+      .cls-2 {
+        fill: #3f2a24;
+      }
+
+      .cls-3 {
+        fill: #eac68c;
+      }
+
+      .cls-4 {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <g>
+    <g>
+      <circle class="cls-1" cx="37.5" cy="37.5" r="37.5"/>
+      <ellipse class="cls-2" cx="37.5" cy="37.5" rx="22.5" ry="21.5"/>
+    </g>
+    <g>
+      <circle class="cls-1" cx="280.5" cy="37.5" r="37.5"/>
+      <ellipse class="cls-2" cx="280.5" cy="37.5" rx="22.5" ry="21.5"/>
+    </g>
+    <ellipse class="cls-1" cx="481.98" cy="303.96" rx="138.9" ry="119.04" transform="translate(-327.61 -179.43) rotate(-0.3)"/>
+    <path class="cls-3" d="M576.17,325.87c.21,39.28-41.74,71.34-93.69,71.62S388.24,366.15,388,326.87s41.94-32.19,93.9-32.47S576,286.59,576.17,325.87Z" transform="translate(-326 -182)"/>
+    <path class="cls-4" d="M508.48,294.26c.06,11-11.78,20-26.45,20.12s-26.6-8.8-26.66-19.84,11.78-20,26.45-20.11S508.43,283.23,508.48,294.26Z" transform="translate(-326 -182)"/>
+    <path class="cls-4" d="M429,274.88c0,4-3.52,7.34-7.9,7.36s-8-3.24-8-7.28,3.52-7.34,7.91-7.37S429,270.83,429,274.88Z" transform="translate(-326 -182)"/>
+    <path class="cls-4" d="M547,274.88c0,4-3.52,7.34-7.9,7.36s-8-3.24-8-7.28,3.52-7.34,7.91-7.37S547,270.83,547,274.88Z" transform="translate(-326 -182)"/>
+  </g>
+</svg>

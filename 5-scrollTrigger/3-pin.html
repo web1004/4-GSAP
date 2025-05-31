@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-pin</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #6fe7f0;}
+    section:nth-child(3){background-color: #94dce7;}
+    section:nth-child(4){background-color: #6597f3;}
+    section:nth-child(5){background-color: #fac2f0;}   
+    section:nth-child(6){background-color: #fbe30e;}   
+    h2 {
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .section02{height: initial;}
+    .section02 h2 {opacity: 0;}
+    p {
+      margin: 0;
+      font-size: 8vw;
+    }
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: initial !important;
+      background: #000 !important;
+      z-index: 10;     
+    }
+    .inner {
+      display: flex;
+      align-items: center;
+      padding: 3vh;
+    }
+    h3 {
+      font-size: 5vw;
+      margin-left: 3vw;
+      margin: 0 0 0 2vw;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <section class="section section01"><h2>section1</h2></section>
+
+    <section class="banner">
+      <div class="inner">
+        <img class="pig" width="100" src="img/pig.svg" alt="">
+        <h3 class="target">Pig Pig</h3>
+      </div>
+    </section>
+
+    <section class="section section02">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sapiente a? Inventore rem cumque, impedit suscipit, maiores soluta, fuga iusto commodi aspernatur in quae blanditiis odit eius? Est, recusandae eos.</p>
+    </section>
+
+    <section class="section section03"><h2>section3</h2></section>
+
+    <section class="section section04"><h2>section4</h2></section>
+    <section class="section section05"><h2>section5</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="js/splitText.js"></script>
+  <script>
+
+    const split = new SplitText('h3',{type:'chars'});
+    // console.log(split);
+    //
+    const tl = gsap.timeline()
+    .from('.pig',{scale:0, ease:'back(3)'})
+    .from('h3',{y:60, opacity:0,ease:'back(3)'})
+    .from(split.chars,{y:60,opacity:0,ease:'back(3)',stagger:0.1})
+
+    ScrollTrigger.create({
+      trigger:'.banner',
+      // start:'top center',
+      // end:'bottom center',
+      //start:'top top',
+      //end:'3000px center',
+      start:'top center',
+      end:'200% center',
+      //markers:true,
+      pin:true,
+      //pinType:'fixed' //fixed(기본)와 transform 이 있음
+      //pinSpacing:false, //pin을 했을때 비어있는 공간을 보여줄건지 결정, 기본값이 true
+      scrub:1,
+      animation:tl,
+    });
+
+
+    ScrollTrigger.create({
+      trigger:'.section03',
+      start:'top',
+      //end:'bottom',
+      end:'+=2000',
+      animation: gsap.to('.section03 h2',{rotation:360}),
+      scrub:1,
+      markers:true,
+      pin:true,
+      // pinSpacing:false, ->공간 자체를 차지하지 않고 그 뒤로 요소가 흘러함, 보통 큰 섹션에 고정을 주고 애니메이션을 줄때는 보통 true 를 사용함
+    })
+  </script>
+</body>
+</html>

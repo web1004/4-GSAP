@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-basicTrigger</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      position: relative;
+    }
+    section:nth-child(1){background-color: #f7e2c6;}
+    section:nth-child(2){background-color: #9edbeb;}
+    section:nth-child(3){background-color: #ffffff;}
+    section:nth-child(4){background-color: #abf0ca;}
+    section:nth-child(5){background-color: #fac2f0;}
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .bearSection{
+      height:30vh;
+      display:flex;
+      align-items: center;
+    }
+    .bearSection img{width: 160px;}
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <section class="section section01"><h2>Section1</h2></section>
+    <section class="section section02"><h2>Section2</h2></section>
+    <section class="bearSection">
+      <img class="bear" src="img/bear.svg" alt="">
+    </section>
+    <section class="section section03"><h2>Section3</h2></section>
+    <section class="section section04"><h2>Section4</h2></section>
+  </div>
+
+
+  <!-- GSAP 라이브러리 설정 -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script>
+    //(1)tween안에 연결하는 방법
+    /* gsap.to('.bear',{
+      x:500,
+      rotation:360,
+      duration:3,
+      scrollTrigger:{
+        trigger:'.bearSection', //트리거의 대상
+        start:'top center', //첫번째:트리거 시키고자하는 대상의 시작위치, 두번째:뷰포트의 위치    
+        end:'bottom 10%',
+        //(기본값)
+       //start:'top bottom'
+        //end:'bottom top', 
+        markers:true,
+        id:'bear'
+      }
+    }); 
+ */
+    //(2)생성자로 만들어서 사용하는 방법
+    const tween = gsap.to('.bear',{
+      x:500,
+      rotation:360,
+      duration:3,     
+    });
+
+    ScrollTrigger.create({
+      trigger:'.bearSection', 
+      start:'top center', 
+      end:'bottom center',
+      markers:true,
+      animation:tween,
+      toggleActions:'restart pause reverse pause'  //play,pause,restart,complete,reverse
+      //enter leave enterback leaveback
+    });
+  </script>
+</body>
+</html>
