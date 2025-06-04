@@ -135,14 +135,14 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script>
     //tween 들로만 작업함
-    /* gsap.from('.cloud',{duration:1, opacity:0, x:50, y:50});
-    gsap.from('.gress',{delay:1, duration:1, opacity:0, y:100});  //구름의 재생시간만큼 delay
-    gsap.from('.girl',{delay:3, duration:1, opacity:0, y:100});
-    gsap.from('.music',{delay:4, duration:1, opacity:0, x:100, y:100}); */
+    // /* gsap.from('.cloud',{duration:1, opacity:0, x:50, y:50});
+    // gsap.from('.gress',{delay:1, duration:1, opacity:0, y:100});  //구름의 재생시간만큼 delay
+    // gsap.from('.girl',{delay:3, duration:1, opacity:0, y:100});
+    // gsap.from('.music',{delay:4, duration:1, opacity:0, x:100, y:100}); */
 
     let tl = gsap.timeline();
 
-    //tl.from('.cloud',{duration:3, opacity:0, x:50, y:50});
+    tl.from('.cloud',{duration:3, opacity:0, x:50, y:50});
     tl.from('.land',{duration:1, opacity:0}); 
     tl.from('.gress',{duration:1, opacity:0, y:100, stagger:{
       each:0.2,
