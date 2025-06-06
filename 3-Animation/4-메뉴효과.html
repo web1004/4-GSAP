@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>4-메뉴효과</title>
   <style>
     body{
       background: black;
       font-weight: bold;
     }
-
     ul{
       font-size: 30px;
       color: gray;
@@ -18,32 +17,42 @@
       display: flex;
       align-items: center;
     }
-
     .dash{
       width: 15px;
       height: 4px;
       background: #3e3e3e;
       margin-right: 10px;
-      opacity:1;
+      opacity:0;
     }
   </style>
 </head>
 <body>
 
+  <!-- (1)단일메뉴 효과 -->
   <ul>
     <li class="item">
       <div class="dash"></div>
       <div class="text">Home</div>
     </li>
-    <li class="item">
+  </ul>
+
+  <hr>
+
+  <!-- (2)다중메뉴 효과 -->
+  <ul>
+    <li class="items">
+      <div class="dash"></div>
+      <div class="text">Home</div>
+    </li>
+    <li class="items">
       <div class="dash"></div>
       <div class="text">About</div>
     </li>
-      <li class="item">
+      <li class="items">
         <div class="dash"></div>
         <div class="text">Product</div>
     </li>
-      <li class="item">
+      <li class="items">
         <div class="dash"></div>
         <div class="text">Contact</div>
     </li>
@@ -52,7 +61,24 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script>
-    const items =document.querySelectorAll('.item');
+    //(1)단일메뉴
+    const item =document.querySelector('.item');
+
+    //let tl = gsap.timeline();
+    let tl = gsap.timeline({paused:true});
+
+    //tl.to('.dash',{opacity:1, backgroundColor:'yellow'})
+    //tl.to('.text',{color:'#fff'})
+
+    tl.to('.item .dash',{opacity:1, x:-5, backgroundColor:'yellow'})
+      .to('.item .text',{x:5, color:'#fff'},'<')
+
+    item.addEventListener('mouseenter', () => {tl.play()})
+    item.addEventListener('mouseleave', () => {tl.reverse()})
+
+
+    //(2)다중메뉴뉴
+    const items =document.querySelectorAll('.items');
 
     //console.log(items);
 
@@ -60,8 +86,7 @@
     //   console.log(item,index)
     // })
 
-    
-    gsap.defaults({duration:0.3}); //(2)매번 넣는것들을 공통으로 넣을수 있음
+    gsap.defaults({duration:0.3}); //매번 넣는것들을 공통으로 넣을수 있음
 
     items.forEach((item) => {
       let tl = gsap.timeline({paused:true});

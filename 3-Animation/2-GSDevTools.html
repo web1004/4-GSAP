@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1-기초애니메이션</title>
+  <title>2-GSDevTools</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
@@ -122,25 +122,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://assets.codepen.io/16327/GSDevTools3.min.js"></script>
   <script>
-    /* 01
-    const tl = gsap.timeline();
-
-    tl.from('.stage',{opacity:0})
-    tl.from('.stage h1',{opacity:0, x:-50})
-    tl.from('.stage h2',{opacity:0, x:50})
-    tl.from('.stage p',{opacity:0, y:50})
-    tl.from('.stage button',{opacity:0, y:50})
-    tl.from('.planet > img',{scale:0,opacity:0,stagger:0.1}) */
-
-    //02. 타임라인 기본값 설정하기기
-    // gsap.defaults({
-    //   opacity:0,
-    //   duration:0.3
-    // })
-    //문제:문서내에 애니메이션이 여러개 일때 모두 적용이 되는 문제 발생하므로 특정 타임라인에만 넣어서 사용할수 있음
-
-    //const tl = gsap.timeline();
     const tl = gsap.timeline({
       defaults:{
         opacity:0,
@@ -149,13 +132,21 @@
       }
     });
 
-
     tl.from('.stage',{})
-    tl.from('.stage h1',{x:-50, duration:0.3}) //따로 설정하고 싶은 경우
+    tl.from('.stage h1',{x:-50, duration:0.3}) 
     tl.from('.stage h2',{ x:50})
     tl.from('.stage p',{y:50})
     tl.from('.stage button',{y:50})
     tl.from('.planet > img',{scale:0,stagger:0.1})
+
+    GSDevTools.create();
   </script>  
 </body>
 </html>
+
+<!-- 
+GSDevTools
+GSDevTools은 애니메이션을 scrub하고 속도를 변경해볼 수 있으며, 특정 구간 반복등 애니메이션 작업에 있어 굉장히 편리한 컨트롤러를 제공한다.
+
+GSDevTools는 Club GreenSock 회원을 위한 보너스 도구 (유료) 지만 CodePen에서 무료로 사용할 수 있다.
+-->
