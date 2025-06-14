@@ -47,7 +47,7 @@
     .goToTop img{
       transform: translateY(30px);
       width: 80px;
-      opacity: 0;
+      opacity: 0;  /* 안보이게 설정 */
     }
     .goToTop a{
       margin-left: 30px;
@@ -55,7 +55,7 @@
       font-size: 2rem;
       color: rgb(40, 40, 40);
       transform: translateY(30px);
-      opacity: 0;
+      opacity: 0;  /* 안보이게 설정 */
     }
     .active .section04{background-color: #000;}
     .active h2{color: orange;}
@@ -64,6 +64,7 @@
 </head>
 <body>
 
+  <!-- 이미지와 top링크를 삽입하고 안보기에 설정해둠 -->
   <div class="goToTop">
     <img src="img/bear.svg" alt="">
     <a href="#section01">Go To Top ⬆</a>
@@ -88,6 +89,8 @@
     .to('.goToTop img',{y:0,opacity:1,ease:'back(3)'})
     .to('.goToTop a',{y:0,opacity:1,ease:'back(3)'},'-=0.3');
 
+
+    //스크롤에 따라 반응하는게 아니고 해당하는 지점에 왔을때 애니메이션을 작동하고 끝나야 하므로 scrub를 사용할 필요없음
     ScrollTrigger.create({
       trigger:'.scroll-content',  //부드러운 스크롤을 줬을때 생기는 클래스(저체 길이를 가지고 있는 제일 큰 컨테이너가 됨)
       start:'75% center',
@@ -110,6 +113,8 @@
       fastScrollEnd: true  //true(기본값 2500), 애니메이션이 빠르게  안보임,scurb하고는 같이 사용할수 없음
     });
 
+
+    //smooth-scrollbar의 속성을 사용함(일반스크롤바가 아니고 부드러운 ㅅ크롤바를 사용하고 있기때문)
     const topButton = document.querySelector('.goToTop');
 
     topButton.addEventListener('click',()=>{

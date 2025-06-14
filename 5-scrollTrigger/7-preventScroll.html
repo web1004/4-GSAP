@@ -70,7 +70,7 @@
     .medium{width: 130%;}
     .large{width: 200%;}
 
-    /* 맨위에 전체 풀크기의 투명한 크기를 올려놓음음 */
+    /* 맨위에 전체 풀크기의 투명한 크기를 올려놓음 */
     #no-scroll{
       width: 100vw;
       height: 100vh;
@@ -84,15 +84,16 @@
 </head>
 <body>
 
+  <!-- 맨위에 전체 풀크기의 투명한 크기를 올려놓음 -->
   <div id="no-scroll"></div>  
   
   <div id="container">   
     <section class="section section01">
       <div class="text_container">
-        <span class="elem">partner in every way</span>
+        <span class="elem">furniture partner</span>
         <h1>
-          <div class="elem">design the <span>futher</span></div>
-          <div class="elem">gain the edge</div>
+          <div class="elem">Stylish <span>furniture</span> design</div>
+          <div class="elem">Style Guide</div>
         </h1>
       </div>
 
@@ -177,7 +178,7 @@
         //from:'center' -> 동일한 구조를 2개 놓은 상태라 가운데가 다름
         from:2  //index번호로 지정
       },
-    },'-=1.5')
+    },'-=1.5') //포지션파라미터로 1.5초 빠르게
     .from('.text_container .elem',{
       y:30,
       opacity:0,

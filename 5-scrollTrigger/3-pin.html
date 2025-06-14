@@ -83,9 +83,22 @@
   <script src="js/splitText.js"></script>
   <script>
 
+  //01
+  /*  ScrollTrigger.create({
+      trigger:'.banner',
+      // start:'top center',
+      // end:'bottom center',
+      //start:'top top',
+      //end:'3000px center',
+      start:'top center',
+      end:'200% center',
+      markers:true,
+      pin:true,
+    }); */
+
     const split = new SplitText('h3',{type:'chars'});
-    // console.log(split);
-    //
+    //console.log(split);
+    //console.log(split.chars);
     const tl = gsap.timeline()
     .from('.pig',{scale:0, ease:'back(3)'})
     .from('h3',{y:60, opacity:0,ease:'back(3)'})
@@ -118,7 +131,7 @@
       markers:true,
       pin:true,
       // pinSpacing:false, ->공간 자체를 차지하지 않고 그 뒤로 요소가 흘러함, 보통 큰 섹션에 고정을 주고 애니메이션을 줄때는 보통 true 를 사용함
-    })
+    }) 
   </script>
 </body>
 </html>

@@ -26,7 +26,7 @@
       top: 50%;
       transform: translate(-50%,-50%);
     }
-    #container{  /* 크기를 반드시 지정정 */
+    #container{  /* 크기를 반드시 지정 */
       width: 100vw;
       height: 100vh;
       overflow-x: hidden;
@@ -72,14 +72,14 @@
       scrub: true,
     });
 
-    ScrollTrigger.create({
-      trigger: '.d2',
-      start: 'top center',
-      end: 'bottom center',
-      animation: gsap.to('.text',{x:200}),
-      markers: true,
-      scrub: true,
-    });
+    // ScrollTrigger.create({
+    //   trigger: '.d2',
+    //   start: 'top center',
+    //   end: 'bottom center',
+    //   animation: gsap.to('.text',{x:200}),
+    //   markers: true,
+    //   scrub: true,
+    // });
 
     markers();
   </script>
