@@ -117,7 +117,18 @@
 
     //console.log(section);
 
-    //const section = gsap.utils.toArray('.section').map((section) => section.getBoundingClientRect().top);
+    //각각의 값들을 뽑아서 새로운 배열에 넣어둠
+    // const section = gsap.utils.toArray('.section').map((section) => {
+    //   console.log(section.getBoundingClientRect().top);  //모든 섹션들의 top값을 가져옴
+    // });
+
+    // const section = gsap.utils.toArray('.section').map((section) => {
+    //   return section.getBoundingClientRect().top; 
+    // });
+
+    const section = gsap.utils.toArray('.section').map((section) => section.getBoundingClientRect().top);
+
+    console.log(section);
 
     gsap.utils.toArray(".section").forEach((section, index) => {
       //console.log(section, index);
@@ -138,6 +149,7 @@
     from()과 fromTo() 트윈의 경우는 GSAP은 immediateRender를 true로 기본값을 가진다.
     immediateRender를 false로 꺼둬야 스크롤트리거가 여러번 생성이 되었을때 to tween 은 부터의 위치를 제일 처음 시작한 렌더의 위치로 잡지 않는다. */
 
+    //(4)탑메뉴에서 해당 지점을 클릭했을때 섹션으로 이동
     gsap.utils.toArray('.nav li').forEach((li,index) => {
       //console.log(li);
       li.addEventListener('click',()=>{
@@ -147,6 +159,8 @@
         //scrollbar.scrollTo(0, innerHeight * index ,600);  //섹션마다 높이가 달라질수 있으므로
         //scrollbar.scrollTo(0, section[index] ,600); //브라우저의 크기가 달라지면 잘 안됨
 
+        //섹션의 높이값
+        //ScrollTrigger.getAll();  → 현재 적용되어 있는 스크롤트리거의 모든 대상들을 수집함
         //console.log(ScrollTrigger.getAll()[3].start + nav.offsetHeight);
         let sectionTop = ScrollTrigger.getAll()[index].start + nav.offsetHeight;
         scrollbar.scrollTo(0, sectionTop ,600);

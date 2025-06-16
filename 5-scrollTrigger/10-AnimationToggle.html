@@ -204,18 +204,24 @@
       end: 'bottom center',
       animation: gsap.to('.section02',{backgroundColor:'black'}),
       //toggleActions:'restart reverse restart reverse',
+
+      // onToggle:(self)=>{
+      //   console.log(self);
+      //   console.log(self.isActive);
+      //   console.log(self.animation);
+      // }
       
-      onToggle:({isActive,animation})=>{
+      onToggle:({isActive,animation})=>{  //구조분해할당
         gsap.to('.section02',{backgroundColor:isActive ? 'black' : 'white'})
       }
     })
 
-    //(1)
+    //(1)progress
     ScrollTrigger.create({
       trigger: '.scroll-content',
       start: 'top top',
       end: 'bottom bottom',
-      animation: gsap.from('.progress',{scaleY:0,transformOrigin:'center top',ease:'none'}),
+      animation: gsap.from('.progress',{scaleY:0,transformOrigin:'center top',ease:'none'}), //transform은 center가 기준임
       scrub: true,
     })
     /* 
