@@ -40,7 +40,7 @@ img{vertical-align:top;}
   margin-bottom: 10px;
   font-weight: bolder;
   letter-spacing: -1px;
-  color: #f45b4b;
+  color: #e86624;
 }
 .con01 .textBox .txt {
   letter-spacing: -1px;
@@ -50,7 +50,7 @@ img{vertical-align:top;}
 /* gallery */
 .gallery {
   width: 100%;
-  background: #f86634;
+  background: #e86624;
   color: #fff;
   padding: 250px 0;
 }
