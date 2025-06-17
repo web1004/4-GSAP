@@ -32,21 +32,20 @@ gsap.timeline({
 
 //(2) imgBox
 gsap.utils.toArray('.imgBox').forEach((imgbox) => {
-  //toArray() : 배열로 만드는 메서드
+  //toArray() : 요소를 배열로 만드는 메서드
   gsap.timeline({
     scrollTrigger:{
       trigger:imgbox,
       start:'50% 100%',
       toggleClass:{targets:imgbox, className:'active'},
       scrub:1,
-      //markers:true,
+      markers:true,
     }
   })
 })
 
 //(3)tetxBox
 gsap.utils.toArray('.textBox').forEach((textbox) => {
-  //toArray() : 배열로 만드는 메서드
   gsap.timeline({
     scrollTrigger:{
       trigger:textbox,
@@ -58,6 +57,3 @@ gsap.utils.toArray('.textBox').forEach((textbox) => {
     }
   })
 })
-
-
-

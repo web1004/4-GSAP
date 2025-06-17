@@ -27,7 +27,7 @@ body{
   overflow: hidden;
   background-color: #272726;
 }
-img{filter: brightness(50%);}
+img{filter: brightness(50%);}  /* 모든 이미지에 적용 */
 
 /* Visual */
 .visual{
@@ -54,6 +54,8 @@ img{filter: brightness(50%);}
   font-size: 5vw;
 }
 
+
+/* Section-공통*/
 section{padding: 50px 0;}
 section .inner{
   width: 80%;
@@ -75,12 +77,15 @@ section .inner{
   line-height: 1.6;
   font-weight: 500;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 .textBox dl dd{
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+
+/* Section-Gallery */
 .gallery{padding-bottom: 100px;}
 .gallery ul{
   display: flex;
@@ -99,16 +104,15 @@ section .inner{
 .gallery ul.size li:nth-child(2){width: 40%;margin-left: -50px;}
 .gallery ul.size li:nth-child(3){width: 65%;margin-left: 10%;}
 
-.textBox{
+.gallery .textBox{
   position: relative;
-  /* padding-top: 10%; */
+  padding-top: 10%;
   /* border: 1px solid red; */
 }
 .textBox .title{
   font-size: 8vw;
   color: yellowgreen;
 }
-
 .textBox .text{
   color: #fff;
   line-height: 1.6;
@@ -124,6 +128,7 @@ section .inner{
   color: #fff;
   display: block;
 }
+
 
 /* imgBox에 active가 불었을때 */
 .imgBox{
@@ -150,14 +155,13 @@ section .inner{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: #272726;
   z-index: 3;
 } */
 
 .imgBox.active:before{height: 0;}
 .imgBox.active img{filter: brightness(100%);transition: 0.8s;}
 /* .imgBox.active:after{height: 0;} */
-
 
 .textBox dt, .textBox dd, .textBox p{
   margin: 30px 0;
@@ -170,4 +174,3 @@ section .inner{
   margin: 0;
   opacity: 1;
 }
-

@@ -42,4 +42,4 @@ const awsome = ()=>{
 }; 
 
 showDemo();
-awsome()
+awsome();

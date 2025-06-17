@@ -6,9 +6,9 @@ $(function(){
   });
 });
 
-/* 
+/* 1024까지만 가로스크롤이 나오게 함
 ScrollTrigger.matchMedia({
-    '(min-width: 800px)': function() {
+    '(min-width: 1024px)': function() {
       이곳에 스크롤 트리거를 작성 
     }
 })
@@ -19,22 +19,22 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.matchMedia({
   '(min-width: 1024px)': function(){
 
-    //(2)리스트
+    //(2)가로스크롤
     let list = gsap.utils.toArray('.work ul li');
     let scrollTween = gsap.to(list, {
-        xPercent: -100 * (list.length - 1), //전체 리스트의 갯수보다 1을 뺀 값으로 가로로 이동하는 공식
+        xPercent: -100 * (list.length - 1), //전체 리스트의 갯수보다 1을 뺀 값으로 길이를 구한 후에 가로로 이동하는 공식
         ease:'none',
         scrollTrigger: {
           trigger: '.work',
           pin: true,
           scrub: 1,
           start: 'center center',
-          end: '300%',  //뷰포트 높이의 300%, 숫자가 높아질수록 느려짐
+          end: '300%',  //뷰포트 높이의 300%, 숫자가 클수록 속도가 느려짐
           //markers:true
         }
     });
 
-    //(3).imGbOX 모션
+    //(3).imgBox 모션
     gsap.utils.toArray('.imgBox').forEach(function(imgBox){
       //(3-1)imgBox가 처음에 나타나게 하는 애니메이션 => 맨 오른쪽에서 커지기 시작해서 중앙에서 끝나는 애니
       gsap.timeline({
@@ -112,5 +112,4 @@ ScrollTrigger.matchMedia({
   });
 
   }
-
 });

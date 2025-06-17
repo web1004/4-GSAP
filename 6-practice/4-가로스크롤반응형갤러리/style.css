@@ -22,30 +22,33 @@ body {
   line-height: 1.6;
 }
 
-.wrap{ 
+#wrap{ 
   position: relative;
   margin: auto; 
   overflow:hidden;
-  background: #000; 
+  background-color: #000; 
   color: #fff; 
-  /* margin-bottom: 3000px; */
 }
 .visual{ 
-  padding-top: 150px;
+  padding-top: 50px;
   height: 100vh;
 }
 .visual .inner{ 
   /* background-color: red; */
-  width: 70%; 
+  width: 80%; 
   margin: auto; 
   display: flex; 
   justify-content: space-between; 
+  align-items: center;
 }
 .visual .inner .textBox{ 
   width: 60%;
   line-height: 1.4;
 }
-.visual .inner .textBox .title {font-size: 180px;line-height: 1.4;}
+.visual .inner .textBox .title {
+  font-size: 170px;
+  line-height: 1.4;
+}
 .visual .inner .textBox .subtitle{
   font-size: 30px; 
   margin: 30px 0; 
@@ -56,7 +59,6 @@ body {
   width: 350px; 
   height: 350px; 
   position: relative; 
-  margin-top: 300px;
 }
 .visual .inner .aniBox img{ 
   position: absolute;
@@ -85,8 +87,8 @@ body {
 .visual.motion .inner .textBox p{animation: textAni3 1s;}
 
 @keyframes textAni3{
-    0% {opacity: 0;}
-    40% {opacity: 0; transform: translate3d(0,50px,0);}
+  0% {opacity: 0;}
+  40% {opacity: 0; transform: translate3d(0,50px,0);}
 }
 
 .visual.motion .inner .textBox p:nth-child(2){ animation-duration: 1.2s;}
@@ -99,67 +101,76 @@ body {
   position: relative;
 }
 .work ul{ 
-  display: flex;  /* flex에는 flex-shrink 속성이 있는데 기본값이 1로 가로배열시 다 보이게 하기 위해 축소시킴 */
+  display: flex;  
   padding: 3% 30%; 
 }
 .work ul li{
   width: 700px; 
-  padding:10px 30px; 
-  flex-shrink: 0 !important;;
+  padding:10px 30px; /* 가로스크롤시 너비에 여백을 포함시키기 위해서 margin을 사용하지 않고 padding을 사용함 */
+  flex-shrink: 0 !important;
+  /* flex에는 flex-shrink 속성이 있는데 기본값이 1로 가로배열시 다 보이게 하기 위해 축소시킴 ->축소가 되지 않게 하기위헤 0을 설정*/
 }
 .work ul li a{
   display: block; 
   width: 100%; 
   position: relative;
 }
-.work ul li a .imgBox{position: relative;}
+.work ul li a .imgBox{
+  position: relative;
+  width: inherit;
+  height: inherit;
+} /* 호버시 가운데 버튼 설정하기 위함 */
 .work ul li a .imgBox img{width: 100%;}
-.work ul li a .textBox{
+.work ul li a .textBox{ /* 부모인 a를 기준으로 설정함 */
   position: absolute; 
   left: 0; 
   bottom: 10%; 
   text-shadow: 2px 2px 10px rgba(0,0,0,0.3); 
   background-color: red;
 }
-.work ul li a .textBox .title{font-size: 60px; }
+.work ul li a .textBox .title{font-size: 36px; }
 .work ul li a .textBox .text{
   font-size: 20px; 
   padding-left: 5px; 
 }
 
-/* imgBox Hover */
-/* 화살표와 테두리 */
-.work ul li a .imgBox::before {
+/* imgBox Hover - 화살표와 테두리 */
+.work ul li a .imgBox:before {
   content: ""; 
   width: 140px; 
   height: 140px; 
   border-radius: 100%; 
-  background: url(../images/readMore2.png) no-repeat center/30px; 
+  border: 1px solid #fff;
+  background: url(images/arrow2.png) no-repeat center/30px; 
   position: absolute; 
   left: 50%; 
   top: 50%; 
-  transform: translate(-50%,50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
   z-index: 2; 
-  transition: all .3s; 
+  transition: 0.3s; 
   opacity: 0;
 }
 
-.work ul li a .imgBox::after {
+/* spin이미지와 배경색 */
+.work ul li a .imgBox:after {
   content: ""; 
-  width: 140px; 
-  height: 140px; 
+  /* width: 140px; 
+  height: 140px;  */
+  width: 0; 
+  height: 0; 
   border-radius: 100%; 
-  background: url(../images/readMore3.png) no-repeat center/130px; 
+  background: #fff url(images/view-more1.png) no-repeat center/130px; 
   position: absolute; 
   left: 50%; 
   top: 50%; 
   transform: translate(-50%,-50%); 
+  transition: 0.3s; 
   z-index: 1; 
   animation: spin2 10s linear infinite; 
 }
-.work ul li a:hover .imgBox img {filter: brightness(50%); transition: .3s;}
-.work ul li a .imgBox:hover::before {opacity: 1;}
-.work ul li a .imgBox:hover::after {opacity: 1;width: 140px; height: 140px; }
+.work ul li a:hover .imgBox img {filter: brightness(50%); transition: 0.3s;}
+.work ul li a .imgBox:hover:before {opacity: 1;}
+.work ul li a .imgBox:hover:after {opacity: 1;width: 140px; height: 140px; }
 
 @keyframes spin2{
   0% {transform: translate(-50%,-50%) rotate(0deg);}
@@ -167,9 +178,11 @@ body {
 }
 
 
-/* inset 설정, .textBox, .text 숨김 */
+/* 가운데 오기 전에는 이미지가 작은 상태를 만들기 위헤 inset을 이용해서 이미지박스 잘라내기 */
+/* 제목글자 박스는 보이지 않게 하고 가운데 왔을때 보이게 함 */
 .work ul li a .imgBox {clip-path: inset(30%);}
 .work ul li a .textBox {opacity: 0;}
+
 
 /* counter */
 .work .counter{
@@ -183,15 +196,15 @@ body {
 .work .counter .now{font-size: 42px;}
 .work ul li .num {width: 100%;}
 
-/* cone3 설정 */
-.con3{
+/* bottom */
+.bottom{
   width: 100%; 
   height: 100vh; 
   display: flex; 
   justify-content: center; 
   align-items: center;
 }
-.con3 h2{
+.bottom h2{
   font-size: 68px; 
   color: #fff; 
   text-transform: uppercase; 
