@@ -9,6 +9,7 @@ gsap.utils.toArray('.con02 ul li a').forEach((elem) => {
     gsap.set(image, {
       x: e.clientX,
       y: e.clientY
+      //스크롤은 무시하고 브라우저의 top을 0으로 기준하여 촤표값을 구함
     });
   };
 
