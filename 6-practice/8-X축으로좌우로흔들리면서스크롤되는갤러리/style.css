@@ -16,22 +16,24 @@ img{vertical-align:top;}
 
 
 /* Layout */
-.wrap {
+#wrap {
   margin: 0 auto; 
   position: relative; 
   overflow: hidden; 
   background: #fed700;
 }
+
 .con01, .con03 {
   height: 100vh; 
   display: flex; 
   justify-content: center; 
   align-items: center; 
   background: #0f0d0d; 
-  color: #fbe094; 
+  color: #fed700; 
   text-align: center; 
   text-transform: uppercase;
 }
+
 .con01 .logo {
   width: 150px;
   margin: 0 auto 25px;
@@ -54,8 +56,7 @@ img{vertical-align:top;}
 /* portfolio */
 .portfolio {padding-top: 100px;}
 .portfolio .textBox {
-  width: 1400px; 
-  margin: 0 auto; 
+  text-align: center;
   text-transform: uppercase; 
   color: #0f0d0d;
 }
@@ -75,8 +76,7 @@ img{vertical-align:top;}
   width: 400px; 
   height: 520px; 
   padding: 0 30px; 
-  box-sizing: border-box; 
-  flex-shrink: 0 !important;
+  flex-shrink: 0 !important; /* 자식요소가 작아지는것을 막기위함 */
 }
 .portfolio .list li .box {
   width: 100%; 
@@ -89,11 +89,12 @@ img{vertical-align:top;}
   width: 100%; 
   height: 100%; 
   position: absolute; 
+  top: 50%; 
   left: 50%; 
-  top: 0; 
-  transform: translateX(-50%); background: url(img/sticker.png) no-repeat center/130px; 
+  transform: translate(-50%,-50%); 
+  background: url(img/sticker.png) no-repeat center/130px; 
   opacity: 0; 
-  transition: .5s;
+  transition: 0.5s;
 }
 .portfolio .list li .box img {width: 100%;}
 .portfolio .list li .box:hover img {

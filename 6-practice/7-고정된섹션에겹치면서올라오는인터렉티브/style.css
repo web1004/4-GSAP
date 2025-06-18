@@ -23,11 +23,12 @@ img{vertical-align:top;}
 body {
   font-size: 16px; 
   line-height: 1.6; 
-  background: #f8f8f4;
+  background-color: #f8f8f4;
 }
+
 #wrap {
   width: 100%; 
-  margin: 0 auto; 
+  margin: auto; 
   overflow: hidden; 
   position: relative;
 }
@@ -35,23 +36,24 @@ section {
   width: 100%; 
   height: 110vh;
 }
-.section01 .cloneWrap {background: #5f5c53; color: #fff;}
-.section02 .cloneWrap {background: #000; color: #fff;}
-.section03 .cloneWrap {background: #222; color: #fff;}
-.section04 .cloneWrap {background: #454545; color: #fdfdfd;}
-.section05 .cloneWrap {background: #2c2c2c; color: #666;}
-.section06 .cloneWrap {background: #fff; color: #000;}
-.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
+/* 각 섹션별 배경색 설정 */
+.section01 .codingWrap {background: #5f5c53; color: #fff;}
+.section02 .codingWrap {background: #000; color: #fff;}
+.section03 .codingWrap {background: #222; color: #fff;}
+.section04 .codingWrap {background: #454545; color: #fdfdfd;}
+.section05 .codingWrap {background: #2c2c2c; color: #666;}
+.section06 .codingWrap {background: #fff; color: #000;}
+/* .section06 .codingWrap:after {background: rgba(0,0,0,0.2);} */
 
 
-.cloneWrap {
+.codingWrap {
   border-radius: 50px 50px 0 0; 
   box-shadow: 0px 0px 30px rgba(0,0,0,0.3); 
   overflow: hidden; 
-  height: 100%; 
+  height: 100%;  /* 각 영역의 아래 공백을 없애기 위함 */
   position: relative;
 }
-.cloneWrap:after{
+.codingWrap:after{
   content: '';
   width: 1px;
   height: 60%;
@@ -61,54 +63,62 @@ section {
   transform: translate(-50%,-50%);
   background: rgba(255,255,255,0.8);
 }
-.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
-.cloneWrap .contBox {
+.section06 .codingWrap::after {background: rgba(0,0,0,0.2);}
+
+.codingWrap .contBox {
   display: flex; 
   justify-content: space-between;
+  align-items: center;
 }
 
-.cloneWrap .contBox li.left {width: 50%;}
-.cloneWrap .contBox li.left a {
+.codingWrap .contBox li.left {
+  width: 50%;
+  padding: 150px 50px 50px 50px;
+}
+.codingWrap .contBox li.left a {
   display: block; 
   width: 100%; 
   height: 100%;
 }
-.cloneWrap .contBox li.left a p.img{width: 100%;}
-.cloneWrap .contBox li.left a p.img img{width: 100%;}
+.codingWrap .contBox li.left a p.img{width: 100%;}
+.codingWrap .contBox li.left a p.img img{width: 100%;}
 
 
-.cloneWrap .contBox li.right {
+.codingWrap .contBox li.right {
   width: 50%; 
-  padding: 150px 0 100px; 
-  box-sizing: border-box;
+  padding: 50px;
 }
-.cloneWrap .contBox li.right .tit {
-  font-size: 120px; 
+.codingWrap .contBox li.right .tit {
+  font-size: 100px; 
   line-height: 0.9; 
-  margin-bottom: 85px;
+  margin-top: 80px;
 }
-.cloneWrap .contBox li.right .tit span {display: block;}
-.cloneWrap .contBox li.right .txtBox {
-  width: 60%; 
+.codingWrap .contBox li.right .txtBox {
+  width: 80%; 
   line-height: 1.5;
   /* background-color: yellow; */
 }
-.cloneWrap .contBox li.right .txtBox .eng {
+.codingWrap .contBox li.right .txtBox .sm{
+  font-size: 13px;
+  margin-top: 30px;
+  color: rgba(255,255,255,0.5);
+}
+.codingWrap .contBox li.right .txtBox .eng {
   font-size: 26px; 
   line-height: 1.2; 
   margin-bottom: 30px;
 }
-.cloneWrap .contBox li.right .txtBox .kor {
+.codingWrap .contBox li.right .txtBox .kor {
   font-size: 15px; 
   margin-bottom: 20px; 
   letter-spacing: -1px;
 }
-.cloneWrap .contBox li.right .txtBox .skill li{
+.codingWrap .contBox li.right .txtBox .skill li{
   margin-bottom: 10px; 
   padding-left: 20px;
   position: relative;
 }
-.cloneWrap .contBox li.right .txtBox .skill li::before {
+.codingWrap .contBox li.right .txtBox .skill li:not(:last-child, .sm):before {
   content: ''; 
   width: 5px; 
   height: 5px; 
@@ -119,27 +129,21 @@ section {
   top: 50%; 
   transform: translateY(-50%);
 }
-.section02 .cloneWrap .contBox li.right .txtBox .skill li::before,
-.section03 .cloneWrap .contBox li.right .txtBox .skill li::before{
+.section02 .codingWrap .contBox li.right .txtBox .skill li:before,
+.section03 .codingWrap .contBox li.right .txtBox .skill li:before{
   background: rgba(255,255,255,0.5);
+}
+.codingWrap .contBox li.right .txtBox .skill li:last-child .btn{
+  display: inline-block;
+  background-color: crimson;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  margin-top: 35px;
 }
 
 
-
-
-
-/* .cloneWrap .content {width: 1px; height: 60%; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.5);}
-.section06 .cloneWrap::after {background: rgba(0,0,0,0.2);}
-
-
-
-
-.cloneWrap .contBox li.left a p img {width: 100%;}
-.section05 .cloneWrap .contBox li.right .tit {letter-spacing: -6px;}
-.section02 .cloneWrap .contBox li.right .tit span,
-.section05 .cloneWrap .contBox li.right .tit span {display: inline;} */
-
-/* scrolla.splitting animation */
+/* scrolla,splitting animation-플러그인에서 사용하는 공식 */
 .contBox li.right .tit.motion .char {
   display: inline-block;
   animation: slide_up 0.4s cubic-bezier(.5,0,.5,1) both;
@@ -156,6 +160,6 @@ section {
   30% {transform: translateY(150px); opacity: 0;}
 }
 
-.cloneWrap .contBox li.right .txtBox.motion .eng {animation: slide_up2 1s;}
-.cloneWrap .contBox li.right .txtBox.motion .kor {animation: slide_up2 1.3s;}
-.cloneWrap .contBox li.right .txtBox.motion .skill {animation: slide_up2 1.6s;} 
+.codingWrap .contBox li.right .txtBox.motion .eng {animation: slide_up2 1s;}
+.codingWrap .contBox li.right .txtBox.motion .kor {animation: slide_up2 1.3s;}
+.codingWrap .contBox li.right .txtBox.motion .skill {animation: slide_up2 1.6s;} 
