@@ -23,27 +23,15 @@ body {
 }
 .character {
   height: 100vh; 
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.character p.img {
-  width: 450px; 
-  height: 450px; 
-  position: absolute; 
-  left: 50%; 
-  top:50%; transform: translate(-50%,-50%);
-}
-.character p.img img {width: 100%;}
-.character .stage {
-  height: 100%; 
-  background-image: url('img/img_3.png'); 
-  background-repeat: no-repeat; 
-  background-position: 0 center; 
-  max-width: 200px;
-  margin: 0 auto;
-}
+.character img {width: 200px;}
+
 
 .con01 {
-  height: 800vh; 
+  height: 100vh; 
   padding-top: 50px;
 }
 .textBox {
@@ -52,7 +40,8 @@ body {
   font-size: 6vw; 
   font-family: 'Squada One', cursive; 
   line-height: 1.1;
-  letter-spacing: -1px; position: relative;
+  letter-spacing: -1px; 
+  position: relative;
 }
 .textBox .en1 {
   font-family: 'Sriracha', cursive; 
@@ -73,16 +62,16 @@ body {
 }
 
 .textBox .container {
-  background-color: red;
+  /* background-color: red; */
   height: 80px; 
   outline: 1px transparent; 
   overflow: hidden;
 }
 .textBox .container .mask .en1 {
-  color: #b1d4da; 
+  color: #51dbf3; 
   -webkit-text-stroke: none;
 }
-.textBox .container .mask{background-color: blue;}
+/* .textBox .container .mask{background-color: blue;} */
 
 
 /* con02 */

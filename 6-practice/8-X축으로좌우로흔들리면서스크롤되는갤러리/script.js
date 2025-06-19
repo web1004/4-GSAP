@@ -18,6 +18,7 @@ let scrollTween = gsap.to(list, {
   }
 });
 
+//좌우로 흔들릴수 있도록 작성
 gsap.to(listA, {
   y: 50,
   rotation: 10,
