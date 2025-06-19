@@ -21,7 +21,7 @@ body{
   font-size: 16px;
   line-height: 1.6;
 }
-.wrap{
+#wrap{
   position: relative;
   margin: 0 auto;
   overflow: hidden;
@@ -38,7 +38,7 @@ body{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  perspective: 1500px;
+  perspective: 1500px; /* 원근감 */
   text-align: center;
 }
 .visual .imgBox img{width: 100%;}
@@ -64,9 +64,11 @@ body{
   margin-right: 100px;
   font-size: 48px;
 }
+
+/* 흐르는 글자 */
 .visual .textLoop ul{
   display: flex;
-  white-space: nowrap;
+  white-space: nowrap; /* 줄바꿈이 일어나지 않도록 */
   font-size: 145px;
   letter-spacing: -2px;
 }
@@ -75,11 +77,8 @@ body{
   padding: 0 20px;
 }
 
-@keyframes textLoop{
-  0%{transform: translate3d(0,0,0);}
-  100%{transform: translate3d(-100%,0,0)}
-}
 
+/* 포플설명 텍스트*/
 .visual .textBox{
   width: 30%;
   position: absolute;
@@ -91,7 +90,10 @@ body{
   font-size: 30px;
   border-bottom: 1px solid #fff;
 }
-.visual .textBox ul .top h2{font-weight: normal;}
+.visual .textBox ul .top h2{
+  font-weight: 500;
+  font-size: 36px;
+}
 .visual .textBox ul li{
   display: flex;
   margin-bottom: 12px;
@@ -105,13 +107,16 @@ body{
 .visual .textBox ul li.mode .btnBox a{
   display: inline-block;
   border: 1px solid rgba(255,255,255,0.3);
-  padding: 0 42px;
+  padding: 0 15px;
   margin-right: 5px;
 }
 .visual .textBox ul li.mode .btnBox a:hover,
 .visual .textBox ul li.mode .btnBox a:focus{
   background: rgba(255,255,255,0.3);
 } 
+
+
+/* 사선반향으로 흘러가는 텍스트 */
 .visual .textLoop2{
   position: absolute;
   bottom: 300px;
@@ -141,9 +146,15 @@ body{
   top: -135px;
 }
 
+
 /* animation */
 .visual .textLoop2 ul.a li{animation: textLoop 7s linear infinite;}
 .visual .textLoop2 ul.b li{animation: textLoop2 7s linear infinite;}
+
+@keyframes textLoop{
+  0%{transform: translate3d(0,0,0);}
+  100%{transform: translate3d(-100%,0,0)}
+}
 
 @keyframes textLoop2{
   0%{transform: translate3d(-100%,0,0);}
@@ -151,6 +162,8 @@ body{
 }
 
 
+
+/* 컬러로 재워지는 텍스트 */
 .textBox2{
   font-size: 45px;
   line-height: 1;
@@ -163,6 +176,4 @@ body{
   background-repeat: no-repeat;
   background-image: linear-gradient(#fff,#fff);
   background-size: 0% 100%; /* 너비, 높이 */
-
-
 }
