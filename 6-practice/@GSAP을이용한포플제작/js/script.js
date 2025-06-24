@@ -128,6 +128,16 @@ gsap.timeline({
 .to('.s2 .title .a',{x:'-100%', ease:'none', duration:5},0)
 .to('.s2 .title .b',{x:'100%', ease:'none', duration:5},0)
 
+//$(function(){
+//	$('.svgAni').find('#svgAni01').each(function(i,pah){
+//		let length = path.getTotalLength();
+//		alert(length);
+//	})
+//	
+//});
+
+
+
 
 
 

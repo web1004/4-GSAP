@@ -18,7 +18,7 @@ const fixedHeader = () => {
     //endTrigger:'.footer',
     end: 'max',
     pin: true,
-    pinSpacing: false, //빈공간으로 나오기 때문에 안나오게 함함
+    pinSpacing: false, //빈공간으로 나오기 때문에 안나오게 함
   })
 };
 
